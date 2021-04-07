@@ -51,9 +51,11 @@
             this.dtp_Birthday = new System.Windows.Forms.DateTimePicker();
             this.dtp_AdmWard = new System.Windows.Forms.DateTimePicker();
             this.txt_TotalCost = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btn_Open = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.pb_Photo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Photo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -247,14 +249,6 @@
             this.txt_TotalCost.Size = new System.Drawing.Size(172, 25);
             this.txt_TotalCost.TabIndex = 22;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(154, 219);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 113);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -264,13 +258,45 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "图片：";
             // 
+            // btn_Open
+            // 
+            this.btn_Open.Location = new System.Drawing.Point(362, 259);
+            this.btn_Open.Name = "btn_Open";
+            this.btn_Open.Size = new System.Drawing.Size(98, 30);
+            this.btn_Open.TabIndex = 25;
+            this.btn_Open.Text = "打开照片";
+            this.btn_Open.UseVisualStyleBackColor = true;
+            this.btn_Open.Click += new System.EventHandler(this.btn_Open_Click);
+            // 
+            // btn_Update
+            // 
+            this.btn_Update.Location = new System.Drawing.Point(362, 308);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(98, 30);
+            this.btn_Update.TabIndex = 26;
+            this.btn_Update.Text = "更新";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            // 
+            // pb_Photo
+            // 
+            this.pb_Photo.Location = new System.Drawing.Point(157, 219);
+            this.pb_Photo.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_Photo.Name = "pb_Photo";
+            this.pb_Photo.Size = new System.Drawing.Size(133, 125);
+            this.pb_Photo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Photo.TabIndex = 27;
+            this.pb_Photo.TabStop = false;
+            // 
             // Property
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pb_Photo);
+            this.Controls.Add(this.btn_Update);
+            this.Controls.Add(this.btn_Open);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txt_TotalCost);
             this.Controls.Add(this.dtp_AdmWard);
             this.Controls.Add(this.dtp_Birthday);
@@ -298,8 +324,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "属性";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Property_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Property_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Photo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,7 +355,9 @@
         private System.Windows.Forms.DateTimePicker dtp_Birthday;
         private System.Windows.Forms.DateTimePicker dtp_AdmWard;
         private System.Windows.Forms.TextBox txt_TotalCost;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btn_Open;
+        private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.PictureBox pb_Photo;
     }
 }

@@ -88,7 +88,9 @@ namespace DoctorWorkStations
 
         private void AdvicePackage_Click(object sender, EventArgs e)
         {
-
+            AdvicePackage a = new AdvicePackage();
+            a.Show();
+            this.Close();
         }
 
     }
