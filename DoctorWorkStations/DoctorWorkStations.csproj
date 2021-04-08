@@ -104,6 +104,18 @@
     <Compile Include="Sign.Designer.cs">
       <DependentUpon>Sign.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudyCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudyCase.Designer.cs">
+      <DependentUpon>StudyCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitBedPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitBedPatient.Designer.cs">
+      <DependentUpon>WaitBedPatient.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdvicePackage.resx">
       <DependentUpon>AdvicePackage.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +151,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sign.resx">
       <DependentUpon>Sign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudyCase.resx">
+      <DependentUpon>StudyCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitBedPatient.resx">
+      <DependentUpon>WaitBedPatient.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

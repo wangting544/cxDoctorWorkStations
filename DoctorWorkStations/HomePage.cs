@@ -93,5 +93,17 @@ namespace DoctorWorkStations
             this.Close();
         }
 
+        private void StudyCase_Click(object sender, EventArgs e)
+        {
+            StudyCase s = new StudyCase();
+            s.Show();
+        }
+
+        private void bsm_WaitBedPatient_Click(object sender, EventArgs e)
+        {
+            WaitBedPatient waitBedPatient = new WaitBedPatient();
+            waitBedPatient.Show();
+            this.Close();
+        }
     }
 }

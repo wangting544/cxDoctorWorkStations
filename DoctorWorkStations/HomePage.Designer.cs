@@ -52,13 +52,13 @@
             this.空白化验单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.制式化验单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.病案检索ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.学习病历ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StudyCase = new System.Windows.Forms.ToolStripMenuItem();
             this.AdvicePackage = new System.Windows.Forms.ToolStripMenuItem();
             this.药品字典ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.病历模块ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.选择模块ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.出院通知ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.等床病人ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_WaitBedPatient = new System.Windows.Forms.ToolStripMenuItem();
             this.选择摆药药局ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.参数设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -166,19 +166,19 @@
             // 大图标ToolStripMenuItem
             // 
             this.大图标ToolStripMenuItem.Name = "大图标ToolStripMenuItem";
-            this.大图标ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.大图标ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.大图标ToolStripMenuItem.Text = "大图标";
             // 
             // 小图标ToolStripMenuItem
             // 
             this.小图标ToolStripMenuItem.Name = "小图标ToolStripMenuItem";
-            this.小图标ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.小图标ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.小图标ToolStripMenuItem.Text = "小图标";
             // 
             // 列表ToolStripMenuItem
             // 
             this.列表ToolStripMenuItem.Name = "列表ToolStripMenuItem";
-            this.列表ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.列表ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.列表ToolStripMenuItem.Text = "列表";
             // 
             // 排列图标ToolStripMenuItem
@@ -189,7 +189,7 @@
             this.按时间ToolStripMenuItem,
             this.按状态ToolStripMenuItem});
             this.排列图标ToolStripMenuItem.Name = "排列图标ToolStripMenuItem";
-            this.排列图标ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.排列图标ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.排列图标ToolStripMenuItem.Text = "排列图标";
             // 
             // 按主题ToolStripMenuItem
@@ -219,13 +219,13 @@
             // 刷新ToolStripMenuItem
             // 
             this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
-            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.刷新ToolStripMenuItem.Text = "刷新";
             // 
             // 选项ToolStripMenuItem
             // 
             this.选项ToolStripMenuItem.Name = "选项ToolStripMenuItem";
-            this.选项ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.选项ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.选项ToolStripMenuItem.Text = "选项";
             // 
             // 工具TToolStripMenuItem
@@ -234,13 +234,13 @@
             this.空白化验单ToolStripMenuItem,
             this.制式化验单ToolStripMenuItem,
             this.病案检索ToolStripMenuItem,
-            this.学习病历ToolStripMenuItem,
+            this.StudyCase,
             this.AdvicePackage,
             this.药品字典ToolStripMenuItem,
             this.病历模块ToolStripMenuItem,
             this.选择模块ToolStripMenuItem,
             this.出院通知ToolStripMenuItem,
-            this.等床病人ToolStripMenuItem,
+            this.tsm_WaitBedPatient,
             this.选择摆药药局ToolStripMenuItem,
             this.ChangePassword,
             this.参数设置ToolStripMenuItem});
@@ -251,81 +251,83 @@
             // 空白化验单ToolStripMenuItem
             // 
             this.空白化验单ToolStripMenuItem.Name = "空白化验单ToolStripMenuItem";
-            this.空白化验单ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.空白化验单ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.空白化验单ToolStripMenuItem.Text = "空白化验单";
             // 
             // 制式化验单ToolStripMenuItem
             // 
             this.制式化验单ToolStripMenuItem.Name = "制式化验单ToolStripMenuItem";
-            this.制式化验单ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.制式化验单ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.制式化验单ToolStripMenuItem.Text = "制式化验单";
             // 
             // 病案检索ToolStripMenuItem
             // 
             this.病案检索ToolStripMenuItem.Name = "病案检索ToolStripMenuItem";
-            this.病案检索ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.病案检索ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.病案检索ToolStripMenuItem.Text = "病案检索";
             // 
-            // 学习病历ToolStripMenuItem
+            // StudyCase
             // 
-            this.学习病历ToolStripMenuItem.Name = "学习病历ToolStripMenuItem";
-            this.学习病历ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.学习病历ToolStripMenuItem.Text = "学习病历";
+            this.StudyCase.Name = "StudyCase";
+            this.StudyCase.Size = new System.Drawing.Size(216, 26);
+            this.StudyCase.Text = "学习病历";
+            this.StudyCase.Click += new System.EventHandler(this.StudyCase_Click);
             // 
             // AdvicePackage
             // 
             this.AdvicePackage.Name = "AdvicePackage";
-            this.AdvicePackage.Size = new System.Drawing.Size(174, 26);
+            this.AdvicePackage.Size = new System.Drawing.Size(216, 26);
             this.AdvicePackage.Text = "套餐医嘱定义";
             this.AdvicePackage.Click += new System.EventHandler(this.AdvicePackage_Click);
             // 
             // 药品字典ToolStripMenuItem
             // 
             this.药品字典ToolStripMenuItem.Name = "药品字典ToolStripMenuItem";
-            this.药品字典ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.药品字典ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.药品字典ToolStripMenuItem.Text = "药品字典";
             // 
             // 病历模块ToolStripMenuItem
             // 
             this.病历模块ToolStripMenuItem.Name = "病历模块ToolStripMenuItem";
-            this.病历模块ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.病历模块ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.病历模块ToolStripMenuItem.Text = "病历模块";
             // 
             // 选择模块ToolStripMenuItem
             // 
             this.选择模块ToolStripMenuItem.Name = "选择模块ToolStripMenuItem";
-            this.选择模块ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.选择模块ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.选择模块ToolStripMenuItem.Text = "选择模块";
             // 
             // 出院通知ToolStripMenuItem
             // 
             this.出院通知ToolStripMenuItem.Name = "出院通知ToolStripMenuItem";
-            this.出院通知ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.出院通知ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.出院通知ToolStripMenuItem.Text = "出院通知";
             // 
-            // 等床病人ToolStripMenuItem
+            // tsm_WaitBedPatient
             // 
-            this.等床病人ToolStripMenuItem.Name = "等床病人ToolStripMenuItem";
-            this.等床病人ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.等床病人ToolStripMenuItem.Text = "等床病人";
+            this.tsm_WaitBedPatient.Name = "tsm_WaitBedPatient";
+            this.tsm_WaitBedPatient.Size = new System.Drawing.Size(216, 26);
+            this.tsm_WaitBedPatient.Text = "等床病人";
+            this.tsm_WaitBedPatient.Click += new System.EventHandler(this.bsm_WaitBedPatient_Click);
             // 
             // 选择摆药药局ToolStripMenuItem
             // 
             this.选择摆药药局ToolStripMenuItem.Name = "选择摆药药局ToolStripMenuItem";
-            this.选择摆药药局ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.选择摆药药局ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.选择摆药药局ToolStripMenuItem.Text = "选择摆药药局";
             // 
             // ChangePassword
             // 
             this.ChangePassword.Name = "ChangePassword";
-            this.ChangePassword.Size = new System.Drawing.Size(174, 26);
+            this.ChangePassword.Size = new System.Drawing.Size(216, 26);
             this.ChangePassword.Text = "修改口令";
             this.ChangePassword.Click += new System.EventHandler(this.ChangePassword_Click);
             // 
             // 参数设置ToolStripMenuItem
             // 
             this.参数设置ToolStripMenuItem.Name = "参数设置ToolStripMenuItem";
-            this.参数设置ToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.参数设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.参数设置ToolStripMenuItem.Text = "参数设置";
             // 
             // 帮助HToolStripMenuItem
@@ -443,13 +445,13 @@
         private System.Windows.Forms.ToolStripMenuItem 空白化验单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 制式化验单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 病案检索ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 学习病历ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StudyCase;
         private System.Windows.Forms.ToolStripMenuItem AdvicePackage;
         private System.Windows.Forms.ToolStripMenuItem 药品字典ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 病历模块ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 选择模块ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 出院通知ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 等床病人ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsm_WaitBedPatient;
         private System.Windows.Forms.ToolStripMenuItem 选择摆药药局ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ChangePassword;
         private System.Windows.Forms.ToolStripMenuItem 参数设置ToolStripMenuItem;

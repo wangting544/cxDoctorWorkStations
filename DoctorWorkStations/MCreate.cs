@@ -17,6 +17,10 @@ namespace DoctorWorkStations
         public MCreate()
         {
             InitializeComponent();
+            this.dgv_Patient.AllowUserToAddRows = false;
+            this.dgv_Patient.RowHeadersVisible = false;
+            this.dgv_Patient.BackgroundColor = Color.White;
+            dgv_Patient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             Search();
         }
 
@@ -25,18 +29,23 @@ namespace DoctorWorkStations
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
             SqlCommand sqlCommand1 = sqlConnection.CreateCommand();
-            sqlCommand1.CommandText = @"SELECT
-                                            count(P.No)
-                                       FROM tb_PatientInHosptial AS P
-                                            JOIN tb_Patient AS PA ON PA.No = P.PatientNo
-                                            JOIN tb_Doctor AS D ON D.No = P.DoctorNo
-                                       WHERE P.IsInHospital IS NULL  and flag is null;";
-            sqlConnection.Open();
-            int count = (int)sqlCommand1.ExecuteScalar();
-            sqlConnection.Close();
-            if(count ==0)
+            //sqlCommand1.CommandText = @"SELECT
+            //                                count(P.No)
+            //                           FROM tb_PatientInHosptial AS P
+            //                                JOIN tb_Patient AS PA ON PA.No = P.PatientNo
+            //                                JOIN tb_Doctor AS D ON D.No = P.DoctorNo
+            //                           WHERE P.IsInHospital IS NULL  and flag is null;";
+            //sqlConnection.Open();
+            //int count = (int)sqlCommand1.ExecuteScalar();
+            //sqlConnection.Close();
+            //if(count ==0)
+            //{
+            //    MessageBox.Show("当前没有病人可选！");
+            //    return;
+            //}
+            if (this.dgv_Patient .CurrentCell == null)
             {
-                MessageBox.Show("当前没有病人可选！");
+                MessageBox.Show("你未选中病人！");
                 return;
             }
             DateTime dateTime = DateTime.Now;
@@ -77,22 +86,22 @@ namespace DoctorWorkStations
                                        FROM tb_PatientInHosptial AS P
                                             JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                             JOIN tb_Doctor AS D ON D.No = P.DoctorNo 
-                                       WHERE P.IsInHospital IS NULL and  flag is null ";
+                                       WHERE P.IsInHospital IS NULL and  flag is null and P.BedNo is not null";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable dataTable = new DataTable();
             sqlConnection.Open();
             sqlDataAdapter.Fill(dataTable);
             sqlConnection.Close();
-            dgv_Patient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Patient.DataSource = dataTable;
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
             HomePage homePage = new HomePage();
             homePage.Show();
+            this.Close();
         }
 
         private void MCreate_FormClosed(object sender, FormClosedEventArgs e)
