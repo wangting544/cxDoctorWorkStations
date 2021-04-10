@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Advice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Advice.Designer.cs">
+      <DependentUpon>Advice.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdvicePackage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,12 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Doctor.cs" />
+    <Compile Include="DrugSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrugSearch.Designer.cs">
+      <DependentUpon>DrugSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,11 +128,17 @@
     <Compile Include="WaitBedPatient.Designer.cs">
       <DependentUpon>WaitBedPatient.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Advice.resx">
+      <DependentUpon>Advice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdvicePackage.resx">
       <DependentUpon>AdvicePackage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrugSearch.resx">
+      <DependentUpon>DrugSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>

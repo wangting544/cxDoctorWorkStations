@@ -61,6 +61,7 @@
             this.btn_Submit.TabIndex = 2;
             this.btn_Submit.Text = "提交";
             this.btn_Submit.UseVisualStyleBackColor = true;
+            this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             // 
             // WaitBedPatient
             // 

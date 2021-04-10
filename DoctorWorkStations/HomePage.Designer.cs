@@ -54,7 +54,7 @@
             this.病案检索ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StudyCase = new System.Windows.Forms.ToolStripMenuItem();
             this.AdvicePackage = new System.Windows.Forms.ToolStripMenuItem();
-            this.药品字典ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_Drug = new System.Windows.Forms.ToolStripMenuItem();
             this.病历模块ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.选择模块ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.出院通知ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +69,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lb_Patient = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbox_ParientOperate = new System.Windows.Forms.ListBox();
+            this.lbl_Doctor = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -106,47 +107,47 @@
             // Create
             // 
             this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(216, 26);
+            this.Create.Size = new System.Drawing.Size(134, 26);
             this.Create.Text = "新建";
             this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
             // Open
             // 
             this.Open.Name = "Open";
-            this.Open.Size = new System.Drawing.Size(216, 26);
+            this.Open.Size = new System.Drawing.Size(134, 26);
             this.Open.Text = "打开";
             // 
             // Shift_in
             // 
             this.Shift_in.Name = "Shift_in";
-            this.Shift_in.Size = new System.Drawing.Size(216, 26);
+            this.Shift_in.Size = new System.Drawing.Size(134, 26);
             this.Shift_in.Text = "移入";
             this.Shift_in.Click += new System.EventHandler(this.Shift_in_Click);
             // 
             // Shift_out
             // 
             this.Shift_out.Name = "Shift_out";
-            this.Shift_out.Size = new System.Drawing.Size(216, 26);
+            this.Shift_out.Size = new System.Drawing.Size(134, 26);
             this.Shift_out.Text = "移出";
             this.Shift_out.Click += new System.EventHandler(this.Shift_out_Click);
             // 
             // Submit
             // 
             this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(216, 26);
+            this.Submit.Size = new System.Drawing.Size(134, 26);
             this.Submit.Text = "提交";
             // 
             // Property
             // 
             this.Property.Name = "Property";
-            this.Property.Size = new System.Drawing.Size(216, 26);
+            this.Property.Size = new System.Drawing.Size(134, 26);
             this.Property.Text = "属性";
             this.Property.Click += new System.EventHandler(this.Property_Click);
             // 
             // Quit
             // 
             this.Quit.Name = "Quit";
-            this.Quit.Size = new System.Drawing.Size(216, 26);
+            this.Quit.Size = new System.Drawing.Size(134, 26);
             this.Quit.Text = "退出(&X)";
             this.Quit.Click += new System.EventHandler(this.Quit_Click);
             // 
@@ -166,19 +167,19 @@
             // 大图标ToolStripMenuItem
             // 
             this.大图标ToolStripMenuItem.Name = "大图标ToolStripMenuItem";
-            this.大图标ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.大图标ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.大图标ToolStripMenuItem.Text = "大图标";
             // 
             // 小图标ToolStripMenuItem
             // 
             this.小图标ToolStripMenuItem.Name = "小图标ToolStripMenuItem";
-            this.小图标ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.小图标ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.小图标ToolStripMenuItem.Text = "小图标";
             // 
             // 列表ToolStripMenuItem
             // 
             this.列表ToolStripMenuItem.Name = "列表ToolStripMenuItem";
-            this.列表ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.列表ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.列表ToolStripMenuItem.Text = "列表";
             // 
             // 排列图标ToolStripMenuItem
@@ -189,7 +190,7 @@
             this.按时间ToolStripMenuItem,
             this.按状态ToolStripMenuItem});
             this.排列图标ToolStripMenuItem.Name = "排列图标ToolStripMenuItem";
-            this.排列图标ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.排列图标ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.排列图标ToolStripMenuItem.Text = "排列图标";
             // 
             // 按主题ToolStripMenuItem
@@ -219,13 +220,13 @@
             // 刷新ToolStripMenuItem
             // 
             this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
-            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.刷新ToolStripMenuItem.Text = "刷新";
             // 
             // 选项ToolStripMenuItem
             // 
             this.选项ToolStripMenuItem.Name = "选项ToolStripMenuItem";
-            this.选项ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.选项ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.选项ToolStripMenuItem.Text = "选项";
             // 
             // 工具TToolStripMenuItem
@@ -236,7 +237,7 @@
             this.病案检索ToolStripMenuItem,
             this.StudyCase,
             this.AdvicePackage,
-            this.药品字典ToolStripMenuItem,
+            this.tsm_Drug,
             this.病历模块ToolStripMenuItem,
             this.选择模块ToolStripMenuItem,
             this.出院通知ToolStripMenuItem,
@@ -280,11 +281,12 @@
             this.AdvicePackage.Text = "套餐医嘱定义";
             this.AdvicePackage.Click += new System.EventHandler(this.AdvicePackage_Click);
             // 
-            // 药品字典ToolStripMenuItem
+            // tsm_Drug
             // 
-            this.药品字典ToolStripMenuItem.Name = "药品字典ToolStripMenuItem";
-            this.药品字典ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.药品字典ToolStripMenuItem.Text = "药品字典";
+            this.tsm_Drug.Name = "tsm_Drug";
+            this.tsm_Drug.Size = new System.Drawing.Size(216, 26);
+            this.tsm_Drug.Text = "药品字典";
+            this.tsm_Drug.Click += new System.EventHandler(this.tsm_Drug_Click);
             // 
             // 病历模块ToolStripMenuItem
             // 
@@ -380,27 +382,48 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.lbox_ParientOperate);
             this.groupBox1.Location = new System.Drawing.Point(190, 49);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(598, 364);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // label2
+            // lbox_ParientOperate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "主题";
+            this.lbox_ParientOperate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbox_ParientOperate.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbox_ParientOperate.FormattingEnabled = true;
+            this.lbox_ParientOperate.ItemHeight = 20;
+            this.lbox_ParientOperate.Items.AddRange(new object[] {
+            "病程",
+            "检查",
+            "检验",
+            "首页",
+            "体温",
+            "医嘱"});
+            this.lbox_ParientOperate.Location = new System.Drawing.Point(6, 24);
+            this.lbox_ParientOperate.Name = "lbox_ParientOperate";
+            this.lbox_ParientOperate.Size = new System.Drawing.Size(120, 140);
+            this.lbox_ParientOperate.TabIndex = 0;
+            this.lbox_ParientOperate.SelectedIndexChanged += new System.EventHandler(this.lbox_ParientOperate_SelectedIndexChanged);
+            // 
+            // lbl_Doctor
+            // 
+            this.lbl_Doctor.AutoSize = true;
+            this.lbl_Doctor.Location = new System.Drawing.Point(597, 28);
+            this.lbl_Doctor.Name = "lbl_Doctor";
+            this.lbl_Doctor.Size = new System.Drawing.Size(55, 15);
+            this.lbl_Doctor.TabIndex = 6;
+            this.lbl_Doctor.Text = "label2";
             // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_Doctor);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lb_Patient);
             this.Controls.Add(this.label1);
@@ -413,7 +436,6 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,7 +469,7 @@
         private System.Windows.Forms.ToolStripMenuItem 病案检索ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem StudyCase;
         private System.Windows.Forms.ToolStripMenuItem AdvicePackage;
-        private System.Windows.Forms.ToolStripMenuItem 药品字典ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsm_Drug;
         private System.Windows.Forms.ToolStripMenuItem 病历模块ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 选择模块ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 出院通知ToolStripMenuItem;
@@ -462,6 +484,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lb_Patient;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox lbox_ParientOperate;
+        private System.Windows.Forms.Label lbl_Doctor;
     }
 }

@@ -41,6 +41,12 @@ namespace DoctorWorkStations
             sqlConnection.Close();
             if(count==1 )
             {
+                SqlCommand sqlCommand1 = sqlConnection.CreateCommand();
+                sqlCommand1.CommandText = "select Name from tb_Doctor where No=@No1";
+                sqlCommand1.Parameters.AddWithValue("@No1", this.txt_No.Text.Trim());
+                sqlConnection.Open();
+                Doctor.name= sqlCommand1.ExecuteScalar().ToString();
+                sqlConnection.Close();
                 Doctor.DoctorNo = txt_No.Text;
                 Doctor.Password = txt_Password.Text;
                 HomePage homePage = new HomePage();

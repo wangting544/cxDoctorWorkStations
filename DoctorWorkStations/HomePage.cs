@@ -35,6 +35,7 @@ namespace DoctorWorkStations
             this.lb_Patient.DataSource = ListTable;
             this.lb_Patient.DisplayMember = "PatientName";
             this.lb_Patient.ValueMember = "PatientNo";
+            lbl_Doctor.Text = $"{Doctor.name}医生，你好！";
         }
 
         private void Quit_Click(object sender, EventArgs e)
@@ -103,6 +104,49 @@ namespace DoctorWorkStations
         {
             WaitBedPatient waitBedPatient = new WaitBedPatient();
             waitBedPatient.Show();
+            this.Close();
+        }
+
+        private void lbox_ParientOperate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lb_Patient.SelectedIndex==-1)
+            {
+                MessageBox.Show("无病人！");
+                return;
+            }
+            if(lbox_ParientOperate.SelectedIndex==0)
+            {
+                MessageBox.Show("111");
+            }
+            if (lbox_ParientOperate.SelectedIndex == 1)
+            {
+
+            }
+            if (lbox_ParientOperate.SelectedIndex == 2)
+            {
+
+            }
+            if (lbox_ParientOperate.SelectedIndex == 3)
+            {
+
+            }
+            if (lbox_ParientOperate.SelectedIndex == 4)
+            {
+
+            }
+            if (lbox_ParientOperate.SelectedIndex==5)
+            {
+                string No = lb_Patient.SelectedValue.ToString();
+                Advice advice = new Advice(No);
+                advice.Show();
+                this.Close();
+            }
+        }
+
+        private void tsm_Drug_Click(object sender, EventArgs e)
+        {
+            DrugSearch drugSearch = new DrugSearch();
+            drugSearch.Show();
             this.Close();
         }
     }
