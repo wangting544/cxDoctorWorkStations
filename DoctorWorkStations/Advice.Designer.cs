@@ -43,6 +43,7 @@
             this.rbtn_Long = new System.Windows.Forms.RadioButton();
             this.rbtn_AllType = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbtn_Executing = new System.Windows.Forms.RadioButton();
             this.rbtn_execute = new System.Windows.Forms.RadioButton();
             this.rbtn_Allexecute = new System.Windows.Forms.RadioButton();
             this.dgv_Execute = new System.Windows.Forms.DataGridView();
@@ -50,7 +51,6 @@
             this.btn_Submit = new System.Windows.Forms.Button();
             this.btn_Keep = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
-            this.rbtn_Executing = new System.Windows.Forms.RadioButton();
             this.btn_Search = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -205,6 +205,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "显示范围";
             // 
+            // rbtn_Executing
+            // 
+            this.rbtn_Executing.AutoSize = true;
+            this.rbtn_Executing.Location = new System.Drawing.Point(161, 22);
+            this.rbtn_Executing.Name = "rbtn_Executing";
+            this.rbtn_Executing.Size = new System.Drawing.Size(73, 19);
+            this.rbtn_Executing.TabIndex = 2;
+            this.rbtn_Executing.TabStop = true;
+            this.rbtn_Executing.Text = "执行中";
+            this.rbtn_Executing.UseVisualStyleBackColor = true;
+            // 
             // rbtn_execute
             // 
             this.rbtn_execute.AutoSize = true;
@@ -230,10 +241,10 @@
             // dgv_Execute
             // 
             this.dgv_Execute.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Execute.Location = new System.Drawing.Point(12, 145);
+            this.dgv_Execute.Location = new System.Drawing.Point(13, 133);
             this.dgv_Execute.Name = "dgv_Execute";
             this.dgv_Execute.RowTemplate.Height = 27;
-            this.dgv_Execute.Size = new System.Drawing.Size(776, 187);
+            this.dgv_Execute.Size = new System.Drawing.Size(958, 187);
             this.dgv_Execute.TabIndex = 12;
             // 
             // dgv_NotExecute
@@ -242,7 +253,7 @@
             this.dgv_NotExecute.Location = new System.Drawing.Point(13, 360);
             this.dgv_NotExecute.Name = "dgv_NotExecute";
             this.dgv_NotExecute.RowTemplate.Height = 27;
-            this.dgv_NotExecute.Size = new System.Drawing.Size(775, 150);
+            this.dgv_NotExecute.Size = new System.Drawing.Size(957, 150);
             this.dgv_NotExecute.TabIndex = 13;
             // 
             // btn_Submit
@@ -275,17 +286,6 @@
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
-            // rbtn_Executing
-            // 
-            this.rbtn_Executing.AutoSize = true;
-            this.rbtn_Executing.Location = new System.Drawing.Point(161, 22);
-            this.rbtn_Executing.Name = "rbtn_Executing";
-            this.rbtn_Executing.Size = new System.Drawing.Size(73, 19);
-            this.rbtn_Executing.TabIndex = 2;
-            this.rbtn_Executing.TabStop = true;
-            this.rbtn_Executing.Text = "执行中";
-            this.rbtn_Executing.UseVisualStyleBackColor = true;
-            // 
             // btn_Search
             // 
             this.btn_Search.Location = new System.Drawing.Point(613, 79);
@@ -300,7 +300,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 583);
+            this.ClientSize = new System.Drawing.Size(982, 583);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Keep);

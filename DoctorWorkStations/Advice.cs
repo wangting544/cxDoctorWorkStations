@@ -305,7 +305,8 @@ namespace DoctorWorkStations
             {
                 MessageBox.Show("已取消！");
             }
-           
+            Search();
+            search1();
         }
 
         private void Advice_FormClosed(object sender, FormClosedEventArgs e)
@@ -317,6 +318,8 @@ namespace DoctorWorkStations
         private void btn_Search_Click(object sender, EventArgs e)
         {
             Search();
+            search1();
         }
+
     }
 }

@@ -29,20 +29,6 @@ namespace DoctorWorkStations
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
             SqlCommand sqlCommand1 = sqlConnection.CreateCommand();
-            //sqlCommand1.CommandText = @"SELECT
-            //                                count(P.No)
-            //                           FROM tb_PatientInHosptial AS P
-            //                                JOIN tb_Patient AS PA ON PA.No = P.PatientNo
-            //                                JOIN tb_Doctor AS D ON D.No = P.DoctorNo
-            //                           WHERE P.IsInHospital IS NULL  and flag is null;";
-            //sqlConnection.Open();
-            //int count = (int)sqlCommand1.ExecuteScalar();
-            //sqlConnection.Close();
-            //if(count ==0)
-            //{
-            //    MessageBox.Show("当前没有病人可选！");
-            //    return;
-            //}
             if (this.dgv_Patient .CurrentCell == null)
             {
                 MessageBox.Show("你未选中病人！");
