@@ -28,7 +28,7 @@ namespace DoctorWorkStations
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = @"SELECT
+            sqlCommand.CommandText = $@"SELECT
                                             P.PatientNo AS 病人ID
 	                                        ,P.No AS 住院号
 	                                        ,PA.Name AS 姓名
@@ -39,7 +39,8 @@ namespace DoctorWorkStations
                                        FROM tb_PatientInHosptial AS P
                                             JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                             JOIN tb_Doctor AS D ON D.No = P.DoctorNo 
-                                       WHERE P.BedNo is null";
+                                            join tb_department as dt on dt.no=d.departmentno
+                                       WHERE P.BedNo is null and dt.name='{Doctor.Department }'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable dataTable = new DataTable();
@@ -94,8 +95,8 @@ namespace DoctorWorkStations
             sqlCommand.CommandText = $@"update tb_PatientInHosptial
                                          set BedNo = @BedNo
                                              ,DoctorNo='{Doctor.DoctorNo }'
+                                            ,AdmWardDate={DateTime.Now}
                                             ,IsInHospital=1
-
                                          WHERE No = @No";
             sqlCommand.Parameters.Add("@BedNo", SqlDbType.VarChar, 0, "床号");
             sqlCommand.Parameters.Add("@No", SqlDbType.VarChar, 0, "住院号");

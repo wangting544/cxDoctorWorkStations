@@ -84,6 +84,12 @@
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="leaveHosptial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="leaveHosptial.Designer.cs">
+      <DependentUpon>leaveHosptial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log_in.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="leaveHosptial.resx">
+      <DependentUpon>leaveHosptial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log_in.resx">
       <DependentUpon>Log_in.cs</DependentUpon>

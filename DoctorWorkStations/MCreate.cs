@@ -61,7 +61,7 @@ namespace DoctorWorkStations
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = "Server=(local);Database=DoctorWorkstation;Integrated Security=sspi";
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = @"SELECT
+            sqlCommand.CommandText = $@"SELECT
                                             P.PatientNo AS 病人ID
 	                                        ,P.No AS 住院号
 	                                        ,PA.Name AS 姓名
@@ -72,7 +72,8 @@ namespace DoctorWorkStations
                                        FROM tb_PatientInHosptial AS P
                                             JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                             JOIN tb_Doctor AS D ON D.No = P.DoctorNo 
-                                       WHERE P.IsInHospital IS NULL and  flag is null and P.BedNo is not null";
+                                            join tb_department as dt on dt.no=d.departmentno
+                                       WHERE P.IsInHospital IS NULL and  flag is null and P.BedNo is not null and dt.name='{Doctor.Department }'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable dataTable = new DataTable();

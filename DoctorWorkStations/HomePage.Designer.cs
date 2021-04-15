@@ -57,7 +57,7 @@
             this.tsm_Drug = new System.Windows.Forms.ToolStripMenuItem();
             this.病历模块ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.选择模块ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.出院通知ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LeaveHosptial = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_WaitBedPatient = new System.Windows.Forms.ToolStripMenuItem();
             this.选择摆药药局ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangePassword = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,47 +107,47 @@
             // Create
             // 
             this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(134, 26);
+            this.Create.Size = new System.Drawing.Size(216, 26);
             this.Create.Text = "新建";
             this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
             // Open
             // 
             this.Open.Name = "Open";
-            this.Open.Size = new System.Drawing.Size(134, 26);
+            this.Open.Size = new System.Drawing.Size(216, 26);
             this.Open.Text = "打开";
             // 
             // Shift_in
             // 
             this.Shift_in.Name = "Shift_in";
-            this.Shift_in.Size = new System.Drawing.Size(134, 26);
+            this.Shift_in.Size = new System.Drawing.Size(216, 26);
             this.Shift_in.Text = "移入";
             this.Shift_in.Click += new System.EventHandler(this.Shift_in_Click);
             // 
             // Shift_out
             // 
             this.Shift_out.Name = "Shift_out";
-            this.Shift_out.Size = new System.Drawing.Size(134, 26);
+            this.Shift_out.Size = new System.Drawing.Size(216, 26);
             this.Shift_out.Text = "移出";
             this.Shift_out.Click += new System.EventHandler(this.Shift_out_Click);
             // 
             // Submit
             // 
             this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(134, 26);
+            this.Submit.Size = new System.Drawing.Size(216, 26);
             this.Submit.Text = "提交";
             // 
             // Property
             // 
             this.Property.Name = "Property";
-            this.Property.Size = new System.Drawing.Size(134, 26);
+            this.Property.Size = new System.Drawing.Size(216, 26);
             this.Property.Text = "属性";
             this.Property.Click += new System.EventHandler(this.Property_Click);
             // 
             // Quit
             // 
             this.Quit.Name = "Quit";
-            this.Quit.Size = new System.Drawing.Size(134, 26);
+            this.Quit.Size = new System.Drawing.Size(216, 26);
             this.Quit.Text = "退出(&X)";
             this.Quit.Click += new System.EventHandler(this.Quit_Click);
             // 
@@ -240,7 +240,7 @@
             this.tsm_Drug,
             this.病历模块ToolStripMenuItem,
             this.选择模块ToolStripMenuItem,
-            this.出院通知ToolStripMenuItem,
+            this.LeaveHosptial,
             this.tsm_WaitBedPatient,
             this.选择摆药药局ToolStripMenuItem,
             this.ChangePassword,
@@ -300,11 +300,12 @@
             this.选择模块ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.选择模块ToolStripMenuItem.Text = "选择模块";
             // 
-            // 出院通知ToolStripMenuItem
+            // LeaveHosptial
             // 
-            this.出院通知ToolStripMenuItem.Name = "出院通知ToolStripMenuItem";
-            this.出院通知ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.出院通知ToolStripMenuItem.Text = "出院通知";
+            this.LeaveHosptial.Name = "LeaveHosptial";
+            this.LeaveHosptial.Size = new System.Drawing.Size(216, 26);
+            this.LeaveHosptial.Text = "出院通知";
+            this.LeaveHosptial.Click += new System.EventHandler(this.LeaveHosptial_Click);
             // 
             // tsm_WaitBedPatient
             // 
@@ -472,7 +473,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsm_Drug;
         private System.Windows.Forms.ToolStripMenuItem 病历模块ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 选择模块ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 出院通知ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LeaveHosptial;
         private System.Windows.Forms.ToolStripMenuItem tsm_WaitBedPatient;
         private System.Windows.Forms.ToolStripMenuItem 选择摆药药局ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ChangePassword;

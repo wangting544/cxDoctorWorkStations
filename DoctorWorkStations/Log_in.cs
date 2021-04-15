@@ -42,11 +42,22 @@ namespace DoctorWorkStations
             if(count==1 )
             {
                 SqlCommand sqlCommand1 = sqlConnection.CreateCommand();
-                sqlCommand1.CommandText = "select Name from tb_Doctor where No=@No1";
+                sqlCommand1.CommandText = @"select 
+                                                d.Name as DoctorName
+	                                            ,de.Name as DepartmentName
+                                           from tb_Doctor as d
+                                                join tb_Department de on de.No = d.DepartmentNo
+                                            where
+                                                d.No = @No1 ";
                 sqlCommand1.Parameters.AddWithValue("@No1", this.txt_No.Text.Trim());
                 sqlConnection.Open();
-                Doctor.name= sqlCommand1.ExecuteScalar().ToString();
-                sqlConnection.Close();
+                SqlDataReader sqlDataReader= sqlCommand1.ExecuteReader();
+                if (sqlDataReader.Read())
+                {
+                    Doctor.name = sqlDataReader["DoctorName"].ToString();
+                    Doctor.Department = sqlDataReader["DepartmentName"].ToString();
+                }
+                sqlDataReader.Close();
                 Doctor.DoctorNo = txt_No.Text;
                 Doctor.Password = txt_Password.Text;
                 HomePage homePage = new HomePage();

@@ -12,5 +12,6 @@ namespace DoctorWorkStations
         public static string name;
         public static string Password;
         public static string Tel;
+        public static string Department;
     }
 }

@@ -26,7 +26,7 @@ namespace DoctorWorkStations
                                         FROM tb_PatientInHosptial AS P
                                         JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                         JOIN tb_Doctor AS D ON D.No = P.DoctorNo
-                                        WHERE D.No = '{Doctor.DoctorNo }' and P.IsInHospital=1";
+                                        WHERE D.No = '{Doctor.DoctorNo }' and P.IsInHospital=1 and flag is null";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable ListTable = new DataTable();
@@ -35,7 +35,7 @@ namespace DoctorWorkStations
             this.lb_Patient.DataSource = ListTable;
             this.lb_Patient.DisplayMember = "PatientName";
             this.lb_Patient.ValueMember = "PatientNo";
-            lbl_Doctor.Text = $"{Doctor.name}医生，你好！";
+            lbl_Doctor.Text = $"{Doctor.Department }的{Doctor.name}医生，你好！";
         }
 
         private void Quit_Click(object sender, EventArgs e)
@@ -148,6 +148,13 @@ namespace DoctorWorkStations
         {
             DrugSearch drugSearch = new DrugSearch();
             drugSearch.Show();
+            this.Close();
+        }
+
+        private void LeaveHosptial_Click(object sender, EventArgs e)
+        {
+            leaveHosptial leaveHosptial = new leaveHosptial();
+            leaveHosptial.Show();
             this.Close();
         }
     }
