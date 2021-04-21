@@ -120,7 +120,8 @@ namespace DoctorWorkStations
             }
             if (lbox_ParientOperate.SelectedIndex == 1)
             {
-                DiseaseCourse diseaseCourse = new DiseaseCourse();
+
+                DiseaseCourse diseaseCourse = new DiseaseCourse(lb_Patient.SelectedValue.ToString());
                 diseaseCourse.Show();
             }
             if (lbox_ParientOperate.SelectedIndex == 2)

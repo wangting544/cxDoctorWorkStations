@@ -21,6 +21,7 @@ namespace DoctorWorkStations
         private DataTable AdviceTable;
         public Advice(string PatientInHospitalNo) : this()
         {
+            double money=0;
             this.dgv_Execute .AllowUserToAddRows = false;
             this.dgv_Execute .RowHeadersVisible = false;
             this.dgv_Execute .BackgroundColor = Color.White;
@@ -44,6 +45,7 @@ namespace DoctorWorkStations
 	                                        ,P.Prepayment
 	                                        ,P.TotalCost
                                             ,PA.Photo
+                                            ,p.Prepayment
                                         FROM tb_PatientInHosptial AS P
                                             JOIN tb_Patient AS PA ON PA.No=P.PatientNo 
                                         WHERE P.No='{PatientInHospitalNo }' and p.flag is null";
@@ -56,8 +58,13 @@ namespace DoctorWorkStations
                 lbl_Sex.Text = sqlDataReader["Sex"].ToString();
                 lbl_Age.Text = (DateTime.Now.Year - (Convert.ToDateTime(sqlDataReader["Birthday"].ToString()).Year)).ToString();
                 lbl_InHosptial.Text = sqlDataReader["PatientNo"].ToString();
+                money = Convert.ToDouble( sqlDataReader["Prepayment"].ToString());
             }
             sqlConnection.Close();
+            if(money<200)
+            {
+                MessageBox.Show($"{lbl_Name.Text}病人预交金不足！");
+            }
             Search();
             search1();
         }

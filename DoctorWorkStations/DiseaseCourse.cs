@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using static System.Environment;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DoctorWorkStations
 {
@@ -18,18 +20,32 @@ namespace DoctorWorkStations
         {
             InitializeComponent();
         }
+        public DiseaseCourse(string PatientInhosptialNo) : this()
+        {
+            string PatientName="";
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = $@"SELECT
+	                                        PA.Name
+                                        FROM tb_PatientInHosptial AS P
+                                            JOIN tb_Patient AS PA ON PA.No=P.PatientNo 
+                                        WHERE P.No='{PatientInhosptialNo  }' and p.flag is null";
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            if (sqlDataReader.Read())
+            {
+                PatientName = sqlDataReader["Name"].ToString();
+            }
+            sqlDataReader.Close();
+
+            label1.Text =$"{PatientName}的病历";
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openPhotoDialog = new OpenFileDialog()
-            {
-                Title = "打开照片文件"
-                ,
-                Filter = "图像文件|*.docx"
-                ,
-                InitialDirectory = GetFolderPath(SpecialFolder.MyPictures)
-            };
-            openPhotoDialog.ShowDialog();
+            
             
         }
     }

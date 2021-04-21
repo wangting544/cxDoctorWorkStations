@@ -31,10 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.CaseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.Create = new System.Windows.Forms.ToolStripMenuItem();
-            this.Open = new System.Windows.Forms.ToolStripMenuItem();
             this.Shift_in = new System.Windows.Forms.ToolStripMenuItem();
             this.Shift_out = new System.Windows.Forms.ToolStripMenuItem();
-            this.Submit = new System.Windows.Forms.ToolStripMenuItem();
             this.Property = new System.Windows.Forms.ToolStripMenuItem();
             this.Quit = new System.Windows.Forms.ToolStripMenuItem();
             this.查看VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,10 +92,8 @@
             // 
             this.CaseHistory.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Create,
-            this.Open,
             this.Shift_in,
             this.Shift_out,
-            this.Submit,
             this.Property,
             this.Quit});
             this.CaseHistory.Name = "CaseHistory";
@@ -110,12 +106,6 @@
             this.Create.Size = new System.Drawing.Size(216, 26);
             this.Create.Text = "新建";
             this.Create.Click += new System.EventHandler(this.Create_Click);
-            // 
-            // Open
-            // 
-            this.Open.Name = "Open";
-            this.Open.Size = new System.Drawing.Size(216, 26);
-            this.Open.Text = "打开";
             // 
             // Shift_in
             // 
@@ -130,12 +120,6 @@
             this.Shift_out.Size = new System.Drawing.Size(216, 26);
             this.Shift_out.Text = "移出";
             this.Shift_out.Click += new System.EventHandler(this.Shift_out_Click);
-            // 
-            // Submit
-            // 
-            this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(216, 26);
-            this.Submit.Text = "提交";
             // 
             // Property
             // 
@@ -447,10 +431,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem CaseHistory;
         private System.Windows.Forms.ToolStripMenuItem Create;
-        private System.Windows.Forms.ToolStripMenuItem Open;
         private System.Windows.Forms.ToolStripMenuItem Shift_in;
         private System.Windows.Forms.ToolStripMenuItem Shift_out;
-        private System.Windows.Forms.ToolStripMenuItem Submit;
         private System.Windows.Forms.ToolStripMenuItem Property;
         private System.Windows.Forms.ToolStripMenuItem Quit;
         private System.Windows.Forms.ToolStripMenuItem 查看VToolStripMenuItem;

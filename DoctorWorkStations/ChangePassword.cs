@@ -84,5 +84,6 @@ namespace DoctorWorkStations
             HomePage h = new HomePage();
             h.Show();
         }
+
     }
 }

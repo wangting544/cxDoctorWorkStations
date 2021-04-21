@@ -78,7 +78,8 @@ namespace DoctorWorkStations
                 sqlCommand.CommandText = $@"UPDATE tb_PatientInHosptial 
 	                                  SET DoctorNo ='{Doctor.DoctorNo }'
                                           ,IsInHospital=1  
-                                            ,Type='在院病历'
+                                          ,Type='在院病历'
+                                             
 	                                  WHERE PatientNo ='{PatientNo}' AND No='{No}'";
             }
             sqlConnection.Open();

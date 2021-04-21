@@ -140,6 +140,12 @@
     <Compile Include="WaitBedPatient.Designer.cs">
       <DependentUpon>WaitBedPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="WriteDiseaseCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteDiseaseCourse.Designer.cs">
+      <DependentUpon>WriteDiseaseCourse.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Advice.resx">
       <DependentUpon>Advice.cs</DependentUpon>
     </EmbeddedResource>
