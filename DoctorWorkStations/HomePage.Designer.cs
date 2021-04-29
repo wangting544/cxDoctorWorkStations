@@ -49,17 +49,14 @@
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.空白化验单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.制式化验单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.病案检索ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchDisease = new System.Windows.Forms.ToolStripMenuItem();
             this.StudyCase = new System.Windows.Forms.ToolStripMenuItem();
             this.AdvicePackage = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_Drug = new System.Windows.Forms.ToolStripMenuItem();
-            this.病历模块ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.选择模块ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LeaveHosptial = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_WaitBedPatient = new System.Windows.Forms.ToolStripMenuItem();
             this.选择摆药药局ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangePassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.参数设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.主题帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,35 +100,35 @@
             // Create
             // 
             this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(216, 26);
+            this.Create.Size = new System.Drawing.Size(134, 26);
             this.Create.Text = "新建";
             this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
             // Shift_in
             // 
             this.Shift_in.Name = "Shift_in";
-            this.Shift_in.Size = new System.Drawing.Size(216, 26);
+            this.Shift_in.Size = new System.Drawing.Size(134, 26);
             this.Shift_in.Text = "移入";
             this.Shift_in.Click += new System.EventHandler(this.Shift_in_Click);
             // 
             // Shift_out
             // 
             this.Shift_out.Name = "Shift_out";
-            this.Shift_out.Size = new System.Drawing.Size(216, 26);
+            this.Shift_out.Size = new System.Drawing.Size(134, 26);
             this.Shift_out.Text = "移出";
             this.Shift_out.Click += new System.EventHandler(this.Shift_out_Click);
             // 
             // Property
             // 
             this.Property.Name = "Property";
-            this.Property.Size = new System.Drawing.Size(216, 26);
+            this.Property.Size = new System.Drawing.Size(134, 26);
             this.Property.Text = "属性";
             this.Property.Click += new System.EventHandler(this.Property_Click);
             // 
             // Quit
             // 
             this.Quit.Name = "Quit";
-            this.Quit.Size = new System.Drawing.Size(216, 26);
+            this.Quit.Size = new System.Drawing.Size(134, 26);
             this.Quit.Text = "退出(&X)";
             this.Quit.Click += new System.EventHandler(this.Quit_Click);
             // 
@@ -218,17 +215,14 @@
             this.工具TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.空白化验单ToolStripMenuItem,
             this.制式化验单ToolStripMenuItem,
-            this.病案检索ToolStripMenuItem,
+            this.SearchDisease,
             this.StudyCase,
             this.AdvicePackage,
             this.tsm_Drug,
-            this.病历模块ToolStripMenuItem,
-            this.选择模块ToolStripMenuItem,
             this.LeaveHosptial,
             this.tsm_WaitBedPatient,
             this.选择摆药药局ToolStripMenuItem,
-            this.ChangePassword,
-            this.参数设置ToolStripMenuItem});
+            this.ChangePassword});
             this.工具TToolStripMenuItem.Name = "工具TToolStripMenuItem";
             this.工具TToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.工具TToolStripMenuItem.Text = "工具（&T）";
@@ -245,11 +239,12 @@
             this.制式化验单ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.制式化验单ToolStripMenuItem.Text = "制式化验单";
             // 
-            // 病案检索ToolStripMenuItem
+            // SearchDisease
             // 
-            this.病案检索ToolStripMenuItem.Name = "病案检索ToolStripMenuItem";
-            this.病案检索ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.病案检索ToolStripMenuItem.Text = "病案检索";
+            this.SearchDisease.Name = "SearchDisease";
+            this.SearchDisease.Size = new System.Drawing.Size(216, 26);
+            this.SearchDisease.Text = "病案检索";
+            this.SearchDisease.Click += new System.EventHandler(this.SearchDisease_Click);
             // 
             // StudyCase
             // 
@@ -271,18 +266,6 @@
             this.tsm_Drug.Size = new System.Drawing.Size(216, 26);
             this.tsm_Drug.Text = "药品字典";
             this.tsm_Drug.Click += new System.EventHandler(this.tsm_Drug_Click);
-            // 
-            // 病历模块ToolStripMenuItem
-            // 
-            this.病历模块ToolStripMenuItem.Name = "病历模块ToolStripMenuItem";
-            this.病历模块ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.病历模块ToolStripMenuItem.Text = "病历模块";
-            // 
-            // 选择模块ToolStripMenuItem
-            // 
-            this.选择模块ToolStripMenuItem.Name = "选择模块ToolStripMenuItem";
-            this.选择模块ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.选择模块ToolStripMenuItem.Text = "选择模块";
             // 
             // LeaveHosptial
             // 
@@ -310,12 +293,6 @@
             this.ChangePassword.Size = new System.Drawing.Size(216, 26);
             this.ChangePassword.Text = "修改口令";
             this.ChangePassword.Click += new System.EventHandler(this.ChangePassword_Click);
-            // 
-            // 参数设置ToolStripMenuItem
-            // 
-            this.参数设置ToolStripMenuItem.Name = "参数设置ToolStripMenuItem";
-            this.参数设置ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.参数设置ToolStripMenuItem.Text = "参数设置";
             // 
             // 帮助HToolStripMenuItem
             // 
@@ -449,17 +426,14 @@
         private System.Windows.Forms.ToolStripMenuItem 工具TToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 空白化验单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 制式化验单ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 病案检索ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SearchDisease;
         private System.Windows.Forms.ToolStripMenuItem StudyCase;
         private System.Windows.Forms.ToolStripMenuItem AdvicePackage;
         private System.Windows.Forms.ToolStripMenuItem tsm_Drug;
-        private System.Windows.Forms.ToolStripMenuItem 病历模块ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 选择模块ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem LeaveHosptial;
         private System.Windows.Forms.ToolStripMenuItem tsm_WaitBedPatient;
         private System.Windows.Forms.ToolStripMenuItem 选择摆药药局ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ChangePassword;
-        private System.Windows.Forms.ToolStripMenuItem 参数设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助HToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 主题帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;

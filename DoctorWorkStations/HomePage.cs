@@ -98,6 +98,7 @@ namespace DoctorWorkStations
         {
             StudyCase s = new StudyCase();
             s.Show();
+            this.Close();
         }
 
         private void bsm_WaitBedPatient_Click(object sender, EventArgs e)
@@ -116,13 +117,22 @@ namespace DoctorWorkStations
             }
             if(lbox_ParientOperate.SelectedIndex==0)
             {
-                MessageBox.Show("111");
+                string Inhosptial = lb_Patient.SelectedValue.ToString();
+                sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+                SqlCommand sqlCommand = sqlConnection.CreateCommand();
+                sqlCommand.CommandText = $"select PatientNo  from tb_PatientInHosptial where No='{Inhosptial }'";
+                sqlConnection.Open();
+                string No = sqlCommand.ExecuteScalar().ToString();
+                sqlConnection.Close();
+                string fileName = $"C:\\Users\\从心\\Desktop\\文件夹\\大二下\\医药数据库技术\\病程\\{No }的病历.docx";
+                System.Diagnostics.Process.Start(fileName );
             }
             if (lbox_ParientOperate.SelectedIndex == 1)
             {
 
                 DiseaseCourse diseaseCourse = new DiseaseCourse(lb_Patient.SelectedValue.ToString());
                 diseaseCourse.Show();
+                this.Close();
             }
             if (lbox_ParientOperate.SelectedIndex == 2)
             {
@@ -130,7 +140,9 @@ namespace DoctorWorkStations
             }
             if (lbox_ParientOperate.SelectedIndex == 3)
             {
-
+                FirstPage firstPage = new FirstPage(lb_Patient.SelectedValue.ToString());
+                firstPage.Show();
+                this.Close();
             }
             if (lbox_ParientOperate.SelectedIndex == 4)
             {
@@ -156,6 +168,13 @@ namespace DoctorWorkStations
         {
             leaveHosptial leaveHosptial = new leaveHosptial();
             leaveHosptial.Show();
+            this.Close();
+        }
+
+        private void SearchDisease_Click(object sender, EventArgs e)
+        {
+            SearchDisease s = new SearchDisease();
+            s.Show();
             this.Close();
         }
     }

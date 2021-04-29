@@ -78,6 +78,12 @@
     <Compile Include="DrugSearch.Designer.cs">
       <DependentUpon>DrugSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="FirstPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstPage.Designer.cs">
+      <DependentUpon>FirstPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,12 @@
     </Compile>
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchDisease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchDisease.Designer.cs">
+      <DependentUpon>SearchDisease.cs</DependentUpon>
     </Compile>
     <Compile Include="Shiftin.cs">
       <SubType>Form</SubType>
@@ -161,6 +173,9 @@
     <EmbeddedResource Include="DrugSearch.resx">
       <DependentUpon>DrugSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FirstPage.resx">
+      <DependentUpon>FirstPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchDisease.resx">
+      <DependentUpon>SearchDisease.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shiftin.resx">
       <DependentUpon>Shiftin.cs</DependentUpon>

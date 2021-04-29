@@ -13,5 +13,6 @@ namespace DoctorWorkStations
         public static string Password;
         public static string Tel;
         public static string Department;
+        //string adviceContent = dgv_DoctorAdvice .CurrentRow.Cells["AdviceContent"].Value.ToString();
     }
 }
