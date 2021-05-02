@@ -34,12 +34,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_Register = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cb_Status = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(285, 100);
+            this.label1.Location = new System.Drawing.Point(290, 162);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
@@ -47,14 +49,14 @@
             // 
             // txt_No
             // 
-            this.txt_No.Location = new System.Drawing.Point(355, 90);
+            this.txt_No.Location = new System.Drawing.Point(348, 152);
             this.txt_No.Name = "txt_No";
             this.txt_No.Size = new System.Drawing.Size(172, 25);
             this.txt_No.TabIndex = 1;
             // 
             // txt_Password
             // 
-            this.txt_Password.Location = new System.Drawing.Point(355, 134);
+            this.txt_Password.Location = new System.Drawing.Point(348, 183);
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.PasswordChar = '*';
             this.txt_Password.Size = new System.Drawing.Size(172, 25);
@@ -63,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(285, 144);
+            this.label2.Location = new System.Drawing.Point(290, 193);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 15);
             this.label2.TabIndex = 2;
@@ -71,7 +73,7 @@
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(438, 195);
+            this.btn_Login.Location = new System.Drawing.Point(426, 246);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(75, 23);
             this.btn_Login.TabIndex = 4;
@@ -81,7 +83,7 @@
             // 
             // btn_Register
             // 
-            this.btn_Register.Location = new System.Drawing.Point(314, 195);
+            this.btn_Register.Location = new System.Drawing.Point(305, 246);
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Size = new System.Drawing.Size(75, 23);
             this.btn_Register.TabIndex = 5;
@@ -89,11 +91,33 @@
             this.btn_Register.UseVisualStyleBackColor = true;
             this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(290, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "身份：";
+            // 
+            // cb_Status
+            // 
+            this.cb_Status.FormattingEnabled = true;
+            this.cb_Status.Items.AddRange(new object[] {
+            "护士",
+            "医生"});
+            this.cb_Status.Location = new System.Drawing.Point(349, 122);
+            this.cb_Status.Name = "cb_Status";
+            this.cb_Status.Size = new System.Drawing.Size(171, 23);
+            this.cb_Status.TabIndex = 8;
+            // 
             // Log_in
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cb_Status);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_Register);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.txt_Password);
@@ -116,6 +140,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_Register;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cb_Status;
     }
 }
 

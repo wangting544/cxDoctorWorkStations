@@ -63,8 +63,6 @@ namespace DoctorWorkStations
         }
         private void Diagnosis()
         {
-            this.dgv_Diagnosis .AllowUserToAddRows = false;
-            this.dgv_Diagnosis .RowHeadersVisible = false;
             this.dgv_Diagnosis .BackgroundColor = Color.White;
             dgv_Diagnosis .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             SqlConnection sqlConnection = new SqlConnection();
@@ -72,13 +70,18 @@ namespace DoctorWorkStations
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText = $"select *  from tb_Diagnosis where PatientNo ='{txt_PatientNo.Text }'";
             DataTable dataTable = new DataTable();
+            DataTable TypeTable = new DataTable();
+            DataTable doctorTable = new DataTable();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             sqlConnection.Open();
             sqlDataAdapter.Fill(dataTable);
+            sqlCommand.CommandText = "select  * from tb_Doctor where Status='医生'";
+            sqlDataAdapter.Fill(doctorTable);
+            sqlCommand.CommandText = "select distinct * from tb_Diagnosis ";
+            sqlDataAdapter.Fill(TypeTable);
             sqlConnection.Close();
             dgv_Diagnosis.DataSource = dataTable;
-            this.dgv_Diagnosis .Columns["Type"].HeaderText = "  ";
             this.dgv_Diagnosis.Columns["Description"].HeaderText = "诊断描述";
             this.dgv_Diagnosis.Columns["Result"].HeaderText = "结果";
             this.dgv_Diagnosis.Columns["Days"].HeaderText = "天数";
@@ -87,6 +90,29 @@ namespace DoctorWorkStations
             this.dgv_Diagnosis.Columns["No"].Visible = false;
             this.dgv_Diagnosis.Columns["PatientNo"].Visible = false;
             this.dgv_Diagnosis.Columns["DoctorNo"].Visible = false;
+            this.dgv_Diagnosis.Columns["type"].Visible = false;
+            DataGridViewComboBoxColumn typeColumn = new DataGridViewComboBoxColumn();
+            dgv_Diagnosis.Columns.Add(typeColumn);
+            typeColumn.Name = "type";
+            typeColumn.HeaderText = "   ";
+            typeColumn.DataSource = TypeTable;
+            typeColumn.DisplayMember = "type";
+            typeColumn.ValueMember = "type";
+            typeColumn.DataPropertyName = "type";
+            typeColumn.DisplayIndex = 0;
+
+            DataGridViewComboBoxColumn doctorColumn = new DataGridViewComboBoxColumn();
+            dgv_Diagnosis.Columns.Add(doctorColumn);
+            doctorColumn.Name = "doctors";
+            doctorColumn.HeaderText = "医生";
+            doctorColumn .DataSource = doctorTable;
+            doctorColumn.DisplayMember = "Name";
+            doctorColumn.ValueMember = "No";
+            doctorColumn.DataPropertyName = "doctorNo";
+
+            this.dgv_Diagnosis.Columns[1].AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.Fill;
+
         }
 
         private void btn_Keep1_Click(object sender, EventArgs e)
@@ -101,18 +127,34 @@ namespace DoctorWorkStations
                                                 , Days =@Days
                                                 , Operate =@Operate
                                                 , DiagnosisDate =@DiagnosisDate
-                                                , DoctorNo ='{Doctor.DoctorNo}'
+                                                , DoctorNo =@DoctorNo
                                             WHERE
-                                                Type =@Type and PatientNo ='{txt_PatientNo.Text }'";
+                                                Type =@Type and PatientNo =@PatientNo;";
             sqlCommand.Parameters.Add("@Description", SqlDbType.VarChar, 0, "Description");
             sqlCommand.Parameters.Add("@Result", SqlDbType.VarChar, 0, "Result");
-            sqlCommand.Parameters.Add("@Days", SqlDbType.Int , 0, "Days");
+            sqlCommand.Parameters.Add("@Days", SqlDbType.Int, 0, "Days");
             sqlCommand.Parameters.Add("@Operate", SqlDbType.Bit, 0, "Operate");
             sqlCommand.Parameters.Add("@DiagnosisDate", SqlDbType.VarChar, 0, "DiagnosisDate");
             sqlCommand.Parameters.Add("@Type", SqlDbType.VarChar, 0, "Type");
+            sqlCommand.Parameters.Add("@DoctorNo", SqlDbType.VarChar, 0, "DoctorNo");
+            sqlCommand.Parameters.AddWithValue("@PatientNo", txt_PatientNo.Text);
+
+            SqlCommand insertCommand = sqlConnection.CreateCommand();
+            insertCommand.CommandText = $@"insert tb_Diagnosis 
+                                            (Type, Description, Result, Days, Operate, DiagnosisDate, DoctorNo, PatientNo)
+                                        values
+                                            (@Type, @Description, @Result, @Days, @Operate, @DiagnosisDate,@DoctorNo,'{txt_PatientNo.Text }')";
+            insertCommand.Parameters.Add("@Description", SqlDbType.VarChar, 0, "Description");
+            insertCommand.Parameters.Add("@Result", SqlDbType.VarChar, 0, "Result");
+            insertCommand.Parameters.Add("@Days", SqlDbType.Int, 0, "Days");
+            insertCommand.Parameters.Add("@Operate", SqlDbType.Bit, 0, "Operate");
+            insertCommand.Parameters.Add("@DiagnosisDate", SqlDbType.VarChar, 0, "DiagnosisDate");
+            insertCommand.Parameters.Add("@Type", SqlDbType.VarChar, 0, "Type");
+            insertCommand.Parameters.Add("@DoctorNo", SqlDbType.VarChar, 0, "DoctorNo");
 
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.UpdateCommand = sqlCommand;
+            sqlDataAdapter.InsertCommand = insertCommand;
             DataTable dateTable = (DataTable)this.dgv_Diagnosis .DataSource;
             sqlConnection.Open();
             int rowaffected = sqlDataAdapter.Update(dateTable );

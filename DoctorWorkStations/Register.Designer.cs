@@ -42,6 +42,8 @@
             this.cbox_Department = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.cb_Status = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Register
@@ -170,11 +172,33 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "*";
             // 
+            // cb_Status
+            // 
+            this.cb_Status.FormattingEnabled = true;
+            this.cb_Status.Items.AddRange(new object[] {
+            "护士",
+            "医生"});
+            this.cb_Status.Location = new System.Drawing.Point(243, 71);
+            this.cb_Status.Name = "cb_Status";
+            this.cb_Status.Size = new System.Drawing.Size(198, 23);
+            this.cb_Status.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(185, 79);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 15);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "身份：";
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cb_Status);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbox_Department);
@@ -213,5 +237,7 @@
         private System.Windows.Forms.ComboBox cbox_Department;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cb_Status;
+        private System.Windows.Forms.Label label8;
     }
 }

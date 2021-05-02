@@ -44,7 +44,7 @@
             this.dgv_Patient.Location = new System.Drawing.Point(26, 12);
             this.dgv_Patient.Name = "dgv_Patient";
             this.dgv_Patient.RowTemplate.Height = 27;
-            this.dgv_Patient.Size = new System.Drawing.Size(295, 317);
+            this.dgv_Patient.Size = new System.Drawing.Size(336, 317);
             this.dgv_Patient.TabIndex = 0;
             // 
             // panel1

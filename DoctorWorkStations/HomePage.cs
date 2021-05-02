@@ -32,6 +32,7 @@ namespace DoctorWorkStations
             DataTable ListTable = new DataTable();
             sqlConnection.Open();
             sqlDataAdapter.Fill(ListTable);
+            sqlConnection.Close();
             this.lb_Patient.DataSource = ListTable;
             this.lb_Patient.DisplayMember = "PatientName";
             this.lb_Patient.ValueMember = "PatientNo";
@@ -62,7 +63,6 @@ namespace DoctorWorkStations
             }
             Sign sign = new Sign(lb_Patient.SelectedValue.ToString());
             sign.Show();
-            this.Close();
         }
 
         private void Shift_in_Click(object sender, EventArgs e)
@@ -110,21 +110,22 @@ namespace DoctorWorkStations
 
         private void lbox_ParientOperate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lb_Patient.SelectedIndex==-1)
+            string Inhosptial = lb_Patient.SelectedValue.ToString();
+            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = $"select PatientNo  from tb_PatientInHosptial where No='{Inhosptial }'";
+            sqlConnection.Open();
+            string PatientNo = sqlCommand.ExecuteScalar().ToString();
+            sqlConnection.Close();
+            if (lb_Patient.SelectedIndex==-1)
             {
                 MessageBox.Show("无病人！");
                 return;
             }
             if(lbox_ParientOperate.SelectedIndex==0)
             {
-                string Inhosptial = lb_Patient.SelectedValue.ToString();
-                sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
-                SqlCommand sqlCommand = sqlConnection.CreateCommand();
-                sqlCommand.CommandText = $"select PatientNo  from tb_PatientInHosptial where No='{Inhosptial }'";
-                sqlConnection.Open();
-                string No = sqlCommand.ExecuteScalar().ToString();
-                sqlConnection.Close();
-                string fileName = $"C:\\Users\\从心\\Desktop\\文件夹\\大二下\\医药数据库技术\\病程\\{No }的病历.docx";
+
+                string fileName = $"C:\\Users\\从心\\Desktop\\文件夹\\大二下\\医药数据库技术\\病程\\{PatientNo}的病历.docx";
                 System.Diagnostics.Process.Start(fileName );
             }
             if (lbox_ParientOperate.SelectedIndex == 1)
@@ -146,7 +147,9 @@ namespace DoctorWorkStations
             }
             if (lbox_ParientOperate.SelectedIndex == 4)
             {
-
+                Temperature temperature = new Temperature(PatientNo );
+                temperature.Show();
+                this.Close();
             }
             if (lbox_ParientOperate.SelectedIndex==5)
             {

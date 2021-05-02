@@ -38,8 +38,15 @@ namespace DoctorWorkStations
             sqlCommand.Parameters.AddWithValue("@No", this.txt_No.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@Password", this.txt_Password.Text.Trim());
             int count = 0;
+            string departmentno="";
             sqlConnection.Open();
             count = int.Parse(sqlCommand.ExecuteScalar().ToString());
+            sqlCommand.CommandText = $"select no from tb_department where name='{Doctor.Department }'";
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            if(sqlDataReader.Read())
+            {
+                departmentno = sqlDataReader["no"].ToString();
+            }
             sqlConnection.Close();
             if(count==0)
             {
@@ -51,14 +58,21 @@ namespace DoctorWorkStations
             sqlCommand2.CommandText = $@"UPDATE tb_PatientInHosptial 
 	                                  SET 
                                          IsInHospital=0
+                                         ,BedNo='NULL'
+
 	                                  WHERE No ='{PatientNo}'";
             sqlConnection.Open();
             int rowAffected = sqlCommand2.ExecuteNonQuery();
+            sqlCommand2.CommandText = $@"select patientno from tb_PatientInHosptial  where no='{PatientNo }'";
+            string no = sqlCommand2.ExecuteScalar().ToString();
+            sqlCommand2.CommandText = $@"INSERT tb_ChangeDepartmentRecord 
+                                            (PatientNo,WritePerson,OldDepartmentNo,SubmitDate )
+                                        VALUES
+                                            ('{no  }','{Doctor.DoctorNo }','{departmentno  }','{DateTime.Now  }')";
+            sqlCommand2.ExecuteNonQuery();
             sqlConnection.Close();
             MessageBox.Show("移出成功！");
             this.Close();
-            HomePage homePage = new HomePage();
-            homePage.Show();
 
         }
 
@@ -71,8 +85,6 @@ namespace DoctorWorkStations
 
         private void Sign_FormClosed(object sender, FormClosedEventArgs e)
         {
-            HomePage h = new HomePage();
-            h.Show();
         }
     }
 }

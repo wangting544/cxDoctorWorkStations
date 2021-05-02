@@ -50,8 +50,8 @@ namespace DoctorWorkStations
             sqlCommand.CommandText = $@"SELECT 
                                                 *
                                          FROM tb_Bed AS B
-                                         WHERE B.Name NOT IN
-                                                    (SELECT BedNo  FROM tb_PatientInHosptial WHERE BedNo IS NOT NULL)";
+                                         WHERE  department='{Doctor.Department }' and B.Name NOT IN
+                                                    (SELECT BedNo  FROM tb_PatientInHosptial WHERE BedNo IS NOT NULL )";
             sqlDataAdapter.Fill(BedNoTable);
             sqlConnection.Close();
             this.dgv_WaitBedPatient.DataSource = dataTable;

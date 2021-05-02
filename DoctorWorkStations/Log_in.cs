@@ -17,11 +17,12 @@ namespace DoctorWorkStations
         public Log_in()
         {
             InitializeComponent();
-
+            cb_Status.SelectedIndex = 0;
         }
         public Log_in(string No):this()
         {
             txt_No.Text  = No;
+            cb_Status.SelectedIndex = 0;
         }
         private void btn_Login_Click(object sender, EventArgs e)
         {
@@ -32,9 +33,10 @@ namespace DoctorWorkStations
 	                                        COUNT(1)
 	                                        FROM tb_Doctor AS D
 	                                        WHERE
-		                                    D.No=@No AND D.Password=@Password;";
+		                                    D.No=@No AND D.Password=@Password and D.status=@Status;";
             sqlCommand.Parameters.AddWithValue("@No", this.txt_No.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@Password", this.txt_Password.Text.Trim());
+            sqlCommand.Parameters.AddWithValue("@Status", this.cb_Status.SelectedItem.ToString());
             int count=0;
             sqlConnection.Open();
             count = int.Parse(sqlCommand.ExecuteScalar().ToString());
@@ -60,8 +62,16 @@ namespace DoctorWorkStations
                 sqlDataReader.Close();
                 Doctor.DoctorNo = txt_No.Text;
                 Doctor.Password = txt_Password.Text;
-                HomePage homePage = new HomePage();
-                homePage.Show();
+                if(cb_Status.SelectedItem.ToString()=="护士")
+                {
+                    NurseHomepage nurseHomepage = new NurseHomepage();
+                    nurseHomepage.Show();
+                }
+                if(cb_Status.SelectedItem.ToString()=="医生")
+                {
+                    HomePage homePage = new HomePage();
+                    homePage.Show();
+                }            
                 this.Hide();
             }
             else
@@ -83,6 +93,6 @@ namespace DoctorWorkStations
             Register register = new Register();
             register.Show();
             this.Hide();
-        }
+        } 
     }
 }

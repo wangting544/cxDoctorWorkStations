@@ -130,7 +130,7 @@ namespace DoctorWorkStations
             sqlDataAdapter.Fill(TypeTable);
             sqlCommand.CommandText = $@"select * from tb_Sort";
             sqlDataAdapter.Fill(SortTable);
-            sqlCommand.CommandText = $@"select * from tb_PatientAdvice where PatientNo={lbl_InHosptial.Text  } and DoctorNo ={Doctor.DoctorNo } and starttime is null";
+            sqlCommand.CommandText = $@"select * from tb_PatientAdvice where PatientNo='{lbl_InHosptial.Text  }' and DoctorNo ='{Doctor.DoctorNo }' and starttime is null";
             sqlDataAdapter.Fill(adviceTable);
             sqlConnection.Close();
             this.AdviceTable = adviceTable;

@@ -18,6 +18,10 @@ namespace DoctorWorkStations
         {
             InitializeComponent();
             rbtn_Inhospital.Checked = true;
+            this.dgv_Patient.AllowUserToAddRows = false;
+            this.dgv_Patient.RowHeadersVisible = false;
+            this.dgv_Patient.BackgroundColor = Color.White;
+            dgv_Patient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             search();
         }
         private void search()
@@ -30,11 +34,12 @@ namespace DoctorWorkStations
                                             ,P.No AS 住院号
 	                                        ,PA.Name AS 姓名
 	                                        ,PA.Sex AS 性别
+                                            
                                        FROM tb_PatientInHosptial AS P
                                             JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                             JOIN tb_Doctor AS D ON D.No = P.DoctorNo 
                                             join tb_department as dt on dt.no=d.departmentno
-                                       WHERE P.IsInHospital=0 and dt.name='{Doctor.Department }'";
+                                       WHERE P.IsInHospital=0 and dt.name='{Doctor.Department }' and P.BedNo is  NOT NULL";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable dataTable = new DataTable();
@@ -84,6 +89,10 @@ namespace DoctorWorkStations
             }
             sqlConnection.Open();
             int affected = sqlCommand.ExecuteNonQuery();
+            sqlCommand .CommandText = $@"update tb_ChangeDepartmentRecord
+                                            set FinishDate='{DateTime.Now }'
+                                            where PatientNo='{PatientNo }'";
+            sqlCommand .ExecuteNonQuery();
             sqlConnection.Close();
             if(affected==1)
             {

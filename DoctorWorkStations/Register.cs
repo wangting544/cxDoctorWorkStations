@@ -29,6 +29,7 @@ namespace DoctorWorkStations
             this.cbox_Department.DataSource = departmentTable;
             this.cbox_Department.DisplayMember = "Name";
             this.cbox_Department.ValueMember = "No";
+            cb_Status.SelectedIndex = 0;
         }
         private void btn_Register_Click(object sender, EventArgs e)
         {
@@ -61,14 +62,15 @@ namespace DoctorWorkStations
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText=
                 @"INSERT tb_Doctor 
-                        (No, Name, Password, Tel,DepartmentNo)
+                        (No, Name, Password, Tel,DepartmentNo,status)
                          VALUES
-                        (@No,@Name,@Password,@Tel,@DepartmentNo);";
+                        (@No,@Name,@Password,@Tel,@DepartmentNo,@Status);";
             sqlCommand.Parameters.AddWithValue("@No", this.txt_No.Text.Trim ());
             sqlCommand.Parameters.AddWithValue("@Name", this.txt_Name.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@Password", this.txt_Password.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@Tel", this.txt_Tel.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@DepartmentNo", this.cbox_Department.SelectedValue.ToString());
+            sqlCommand.Parameters.AddWithValue("@Status", this.cb_Status.SelectedItem.ToString());
             int rowAffect=0;
             int flag = 0;
             try
@@ -122,12 +124,6 @@ namespace DoctorWorkStations
         private void txt_No_Validated(object sender, EventArgs e)
         {
             label6.Text = "*";
-            if(txt_No.Text.Length!=10)
-            {
-                label6.Text = "账号只能为十位数";
-                this.txt_No.Text = null;
-                this.txt_No.Focus();
-            }
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = "Server=(local);Database=DoctorWorkstation;Integrated Security=sspi";
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
