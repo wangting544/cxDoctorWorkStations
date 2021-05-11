@@ -124,6 +124,7 @@
             this.Controls.Add(this.dtp_date);
             this.Name = "Temperature";
             this.Text = "体症记录";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Temperature_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Record)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

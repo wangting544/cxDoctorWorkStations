@@ -102,5 +102,11 @@ namespace DoctorWorkStations
         {
             SearchAll1();
         }
+
+        private void Temperature_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            HomePage homePage = new HomePage();
+            homePage.Show();
+        }
     }
 }

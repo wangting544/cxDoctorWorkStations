@@ -512,6 +512,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "NRegisterInformation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "医疗信息登记";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NRegisterInformation_FormClosed);
             this.panel1.ResumeLayout(false);

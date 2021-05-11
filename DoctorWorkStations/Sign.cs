@@ -72,6 +72,8 @@ namespace DoctorWorkStations
             sqlCommand2.ExecuteNonQuery();
             sqlConnection.Close();
             MessageBox.Show("移出成功！");
+            HomePage homePage = new HomePage();
+            homePage.Show();
             this.Close();
 
         }

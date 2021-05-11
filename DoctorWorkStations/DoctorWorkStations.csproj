@@ -114,17 +114,41 @@
     <Compile Include="NChangeDepartment.Designer.cs">
       <DependentUpon>NChangeDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="NCheckAdvice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NCheckAdvice.Designer.cs">
+      <DependentUpon>NCheckAdvice.cs</DependentUpon>
+    </Compile>
     <Compile Include="NEnterDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NEnterDepartment.Designer.cs">
       <DependentUpon>NEnterDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="NLeaveHospital.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NLeaveHospital.Designer.cs">
+      <DependentUpon>NLeaveHospital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NLookAdvice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NLookAdvice.Designer.cs">
+      <DependentUpon>NLookAdvice.cs</DependentUpon>
+    </Compile>
     <Compile Include="NRegisterInformation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NRegisterInformation.Designer.cs">
       <DependentUpon>NRegisterInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NStopAdvice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NStopAdvice.Designer.cs">
+      <DependentUpon>NStopAdvice.cs</DependentUpon>
     </Compile>
     <Compile Include="NurseHomepage.cs">
       <SubType>Form</SubType>
@@ -145,6 +169,12 @@
     </Compile>
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchAdvice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchAdvice.Designer.cs">
+      <DependentUpon>SearchAdvice.cs</DependentUpon>
     </Compile>
     <Compile Include="SearchDisease.cs">
       <SubType>Form</SubType>
@@ -221,11 +251,23 @@
     <EmbeddedResource Include="NChangeDepartment.resx">
       <DependentUpon>NChangeDepartment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NCheckAdvice.resx">
+      <DependentUpon>NCheckAdvice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NEnterDepartment.resx">
       <DependentUpon>NEnterDepartment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NLeaveHospital.resx">
+      <DependentUpon>NLeaveHospital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NLookAdvice.resx">
+      <DependentUpon>NLookAdvice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NRegisterInformation.resx">
       <DependentUpon>NRegisterInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NStopAdvice.resx">
+      <DependentUpon>NStopAdvice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NurseHomepage.resx">
       <DependentUpon>NurseHomepage.cs</DependentUpon>
@@ -244,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchAdvice.resx">
+      <DependentUpon>SearchAdvice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchDisease.resx">
       <DependentUpon>SearchDisease.cs</DependentUpon>

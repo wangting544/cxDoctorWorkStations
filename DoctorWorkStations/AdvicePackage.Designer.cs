@@ -60,7 +60,7 @@
             this.dgv_DoctorAdvice.Location = new System.Drawing.Point(24, 85);
             this.dgv_DoctorAdvice.Name = "dgv_DoctorAdvice";
             this.dgv_DoctorAdvice.RowTemplate.Height = 27;
-            this.dgv_DoctorAdvice.Size = new System.Drawing.Size(740, 266);
+            this.dgv_DoctorAdvice.Size = new System.Drawing.Size(798, 266);
             this.dgv_DoctorAdvice.TabIndex = 2;
             // 
             // btnSubmit
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(847, 450);
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.btn_close);

@@ -47,6 +47,8 @@ namespace DoctorWorkStations
                 sqlCommand1.CommandText = @"select 
                                                 d.Name as DoctorName
 	                                            ,de.Name as DepartmentName
+                                                ,de.no as departmentno
+                                                ,d.status
                                            from tb_Doctor as d
                                                 join tb_Department de on de.No = d.DepartmentNo
                                             where
@@ -58,6 +60,8 @@ namespace DoctorWorkStations
                 {
                     Doctor.name = sqlDataReader["DoctorName"].ToString();
                     Doctor.Department = sqlDataReader["DepartmentName"].ToString();
+                    Doctor.DepartmentNo = sqlDataReader["departmentno"].ToString();
+                    Doctor.Status = sqlDataReader["status"].ToString();
                 }
                 sqlDataReader.Close();
                 Doctor.DoctorNo = txt_No.Text;

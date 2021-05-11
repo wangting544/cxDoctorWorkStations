@@ -17,6 +17,11 @@ namespace DoctorWorkStations
         public NChangeDepartment()
         {
             InitializeComponent();
+            this.dgv_Patient .AllowUserToAddRows = false;
+            this.dgv_Patient .RowHeadersVisible = false;
+            this.dgv_Patient .BackgroundColor = Color.White;
+            dgv_Patient .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             Search();
         }
         private void Search()
@@ -32,7 +37,7 @@ namespace DoctorWorkStations
 	                                        ,P.BedNo AS 床号
 	                                        ,P.PrincipalDiagnosis AS 主要诊断
 	                                        ,D.Name AS 经治医生
-                                            ,d.DEPARTMENTNO
+                                            ,d.departmentno as 科室
                                        FROM tb_PatientInHosptial AS P
                                             JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                             JOIN tb_Doctor AS D ON D.No = P.DoctorNo 
@@ -55,7 +60,7 @@ namespace DoctorWorkStations
                 return;
             }
             string PatientNo = this.dgv_Patient.CurrentRow.Cells["病人ID"].Value.ToString();
-            string DepartmentNo = this.dgv_Patient.CurrentRow.Cells["DEPARTMENTNO"].Value.ToString();
+            string DepartmentNo = this.dgv_Patient.CurrentRow.Cells["科室"].Value.ToString();
             DateTime time = DateTime.Now;
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;

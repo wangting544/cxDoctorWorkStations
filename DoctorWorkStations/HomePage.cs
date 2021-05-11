@@ -26,7 +26,7 @@ namespace DoctorWorkStations
                                         FROM tb_PatientInHosptial AS P
                                         JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                         JOIN tb_Doctor AS D ON D.No = P.DoctorNo
-                                        WHERE D.No = '{Doctor.DoctorNo }' and P.IsInHospital=1 and flag is null";
+                                        WHERE D.No = '{Doctor.DoctorNo }' and P.IsInHospital=1 and flag is null ";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable ListTable = new DataTable();
@@ -63,6 +63,7 @@ namespace DoctorWorkStations
             }
             Sign sign = new Sign(lb_Patient.SelectedValue.ToString());
             sign.Show();
+            this.Close();
         }
 
         private void Shift_in_Click(object sender, EventArgs e)
@@ -126,7 +127,16 @@ namespace DoctorWorkStations
             {
 
                 string fileName = $"C:\\Users\\从心\\Desktop\\文件夹\\大二下\\医药数据库技术\\病程\\{PatientNo}的病历.docx";
-                System.Diagnostics.Process.Start(fileName );
+                try
+                {
+                    System.Diagnostics.Process.Start(fileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    
+                }
+               
             }
             if (lbox_ParientOperate.SelectedIndex == 1)
             {
@@ -180,5 +190,6 @@ namespace DoctorWorkStations
             s.Show();
             this.Close();
         }
+
     }
 }

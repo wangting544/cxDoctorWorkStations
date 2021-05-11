@@ -71,6 +71,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_Patient);
             this.Name = "NChangeDepartment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "转科";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NChangeDepartment_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Patient)).EndInit();

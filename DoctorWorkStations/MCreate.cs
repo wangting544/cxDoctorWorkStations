@@ -73,7 +73,7 @@ namespace DoctorWorkStations
                                             JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                             JOIN tb_Doctor AS D ON D.No = P.DoctorNo 
                                             join tb_department as dt on dt.no=d.departmentno
-                                       WHERE P.IsInHospital IS NULL and  flag is null and P.BedNo is not null and dt.name='{Doctor.Department }'";
+                                       WHERE P.IsInHospital IS NULL and  flag is null and P.BedNo != 'NULL' and dt.name='{Doctor.Department }'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable dataTable = new DataTable();

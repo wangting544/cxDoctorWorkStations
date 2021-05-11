@@ -37,25 +37,18 @@
             this.lbl_Name = new System.Windows.Forms.Label();
             this.lbl_Sex = new System.Windows.Forms.Label();
             this.lbl_Age = new System.Windows.Forms.Label();
-            this.lbl_InHosptial = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbtn_temporary = new System.Windows.Forms.RadioButton();
-            this.rbtn_Long = new System.Windows.Forms.RadioButton();
-            this.rbtn_AllType = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbtn_Executing = new System.Windows.Forms.RadioButton();
-            this.rbtn_execute = new System.Windows.Forms.RadioButton();
-            this.rbtn_Allexecute = new System.Windows.Forms.RadioButton();
-            this.dgv_Execute = new System.Windows.Forms.DataGridView();
+            this.lbl_PatientNo = new System.Windows.Forms.Label();
             this.dgv_NotExecute = new System.Windows.Forms.DataGridView();
             this.btn_Submit = new System.Windows.Forms.Button();
-            this.btn_Keep = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
-            this.btn_Search = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Execute)).BeginInit();
+            this.btn_SearchAdvice = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgv_Package = new System.Windows.Forms.DataGridView();
+            this.btn_Upper = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NotExecute)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Package)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -139,142 +132,33 @@
             this.lbl_Age.TabIndex = 8;
             this.lbl_Age.Text = "label9";
             // 
-            // lbl_InHosptial
+            // lbl_PatientNo
             // 
-            this.lbl_InHosptial.AutoSize = true;
-            this.lbl_InHosptial.Location = new System.Drawing.Point(610, 19);
-            this.lbl_InHosptial.Name = "lbl_InHosptial";
-            this.lbl_InHosptial.Size = new System.Drawing.Size(63, 15);
-            this.lbl_InHosptial.TabIndex = 9;
-            this.lbl_InHosptial.Text = "label10";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbtn_temporary);
-            this.groupBox1.Controls.Add(this.rbtn_Long);
-            this.groupBox1.Controls.Add(this.rbtn_AllType);
-            this.groupBox1.Location = new System.Drawing.Point(59, 54);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(206, 63);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "长期 / 临时";
-            // 
-            // rbtn_temporary
-            // 
-            this.rbtn_temporary.AutoSize = true;
-            this.rbtn_temporary.Location = new System.Drawing.Point(136, 24);
-            this.rbtn_temporary.Name = "rbtn_temporary";
-            this.rbtn_temporary.Size = new System.Drawing.Size(58, 19);
-            this.rbtn_temporary.TabIndex = 2;
-            this.rbtn_temporary.TabStop = true;
-            this.rbtn_temporary.Text = "临时";
-            this.rbtn_temporary.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_Long
-            // 
-            this.rbtn_Long.AutoSize = true;
-            this.rbtn_Long.Location = new System.Drawing.Point(72, 24);
-            this.rbtn_Long.Name = "rbtn_Long";
-            this.rbtn_Long.Size = new System.Drawing.Size(58, 19);
-            this.rbtn_Long.TabIndex = 1;
-            this.rbtn_Long.TabStop = true;
-            this.rbtn_Long.Text = "长期";
-            this.rbtn_Long.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_AllType
-            // 
-            this.rbtn_AllType.AutoSize = true;
-            this.rbtn_AllType.Location = new System.Drawing.Point(7, 25);
-            this.rbtn_AllType.Name = "rbtn_AllType";
-            this.rbtn_AllType.Size = new System.Drawing.Size(58, 19);
-            this.rbtn_AllType.TabIndex = 0;
-            this.rbtn_AllType.TabStop = true;
-            this.rbtn_AllType.Text = "全部";
-            this.rbtn_AllType.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rbtn_Executing);
-            this.groupBox2.Controls.Add(this.rbtn_execute);
-            this.groupBox2.Controls.Add(this.rbtn_Allexecute);
-            this.groupBox2.Location = new System.Drawing.Point(307, 54);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(247, 63);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "显示范围";
-            // 
-            // rbtn_Executing
-            // 
-            this.rbtn_Executing.AutoSize = true;
-            this.rbtn_Executing.Location = new System.Drawing.Point(161, 22);
-            this.rbtn_Executing.Name = "rbtn_Executing";
-            this.rbtn_Executing.Size = new System.Drawing.Size(73, 19);
-            this.rbtn_Executing.TabIndex = 2;
-            this.rbtn_Executing.TabStop = true;
-            this.rbtn_Executing.Text = "执行中";
-            this.rbtn_Executing.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_execute
-            // 
-            this.rbtn_execute.AutoSize = true;
-            this.rbtn_execute.Location = new System.Drawing.Point(87, 23);
-            this.rbtn_execute.Name = "rbtn_execute";
-            this.rbtn_execute.Size = new System.Drawing.Size(73, 19);
-            this.rbtn_execute.TabIndex = 1;
-            this.rbtn_execute.TabStop = true;
-            this.rbtn_execute.Text = "己执行";
-            this.rbtn_execute.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_Allexecute
-            // 
-            this.rbtn_Allexecute.AutoSize = true;
-            this.rbtn_Allexecute.Location = new System.Drawing.Point(7, 25);
-            this.rbtn_Allexecute.Name = "rbtn_Allexecute";
-            this.rbtn_Allexecute.Size = new System.Drawing.Size(73, 19);
-            this.rbtn_Allexecute.TabIndex = 0;
-            this.rbtn_Allexecute.TabStop = true;
-            this.rbtn_Allexecute.Text = "都显示";
-            this.rbtn_Allexecute.UseVisualStyleBackColor = true;
-            // 
-            // dgv_Execute
-            // 
-            this.dgv_Execute.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Execute.Location = new System.Drawing.Point(13, 133);
-            this.dgv_Execute.Name = "dgv_Execute";
-            this.dgv_Execute.RowTemplate.Height = 27;
-            this.dgv_Execute.Size = new System.Drawing.Size(958, 187);
-            this.dgv_Execute.TabIndex = 12;
+            this.lbl_PatientNo.AutoSize = true;
+            this.lbl_PatientNo.Location = new System.Drawing.Point(610, 19);
+            this.lbl_PatientNo.Name = "lbl_PatientNo";
+            this.lbl_PatientNo.Size = new System.Drawing.Size(63, 15);
+            this.lbl_PatientNo.TabIndex = 9;
+            this.lbl_PatientNo.Text = "label10";
             // 
             // dgv_NotExecute
             // 
             this.dgv_NotExecute.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_NotExecute.Location = new System.Drawing.Point(13, 360);
+            this.dgv_NotExecute.Location = new System.Drawing.Point(13, 84);
             this.dgv_NotExecute.Name = "dgv_NotExecute";
             this.dgv_NotExecute.RowTemplate.Height = 27;
-            this.dgv_NotExecute.Size = new System.Drawing.Size(957, 150);
+            this.dgv_NotExecute.Size = new System.Drawing.Size(1057, 187);
             this.dgv_NotExecute.TabIndex = 13;
             // 
             // btn_Submit
             // 
-            this.btn_Submit.Location = new System.Drawing.Point(502, 537);
+            this.btn_Submit.Location = new System.Drawing.Point(807, 295);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(75, 30);
             this.btn_Submit.TabIndex = 14;
             this.btn_Submit.Text = "提交(&T)";
             this.btn_Submit.UseVisualStyleBackColor = true;
             this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
-            // 
-            // btn_Keep
-            // 
-            this.btn_Keep.Location = new System.Drawing.Point(613, 537);
-            this.btn_Keep.Name = "btn_Keep";
-            this.btn_Keep.Size = new System.Drawing.Size(75, 30);
-            this.btn_Keep.TabIndex = 15;
-            this.btn_Keep.Text = "保存(&S)";
-            this.btn_Keep.UseVisualStyleBackColor = true;
-            this.btn_Keep.Click += new System.EventHandler(this.btn_Keep_Click);
             // 
             // btn_Close
             // 
@@ -286,30 +170,78 @@
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
-            // btn_Search
+            // btn_SearchAdvice
             // 
-            this.btn_Search.Location = new System.Drawing.Point(613, 79);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(75, 30);
-            this.btn_Search.TabIndex = 17;
-            this.btn_Search.Text = "查找";
-            this.btn_Search.UseVisualStyleBackColor = true;
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            this.btn_SearchAdvice.Location = new System.Drawing.Point(712, 36);
+            this.btn_SearchAdvice.Name = "btn_SearchAdvice";
+            this.btn_SearchAdvice.Size = new System.Drawing.Size(95, 30);
+            this.btn_SearchAdvice.TabIndex = 18;
+            this.btn_SearchAdvice.Text = "查看医嘱";
+            this.btn_SearchAdvice.UseVisualStyleBackColor = true;
+            this.btn_SearchAdvice.Click += new System.EventHandler(this.btn_SearchAdvice_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 15);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "开医嘱";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 307);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 15);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "医嘱套餐";
+            // 
+            // dgv_Package
+            // 
+            this.dgv_Package.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Package.Location = new System.Drawing.Point(13, 348);
+            this.dgv_Package.Name = "dgv_Package";
+            this.dgv_Package.RowTemplate.Height = 27;
+            this.dgv_Package.Size = new System.Drawing.Size(1057, 150);
+            this.dgv_Package.TabIndex = 21;
+            // 
+            // btn_Upper
+            // 
+            this.btn_Upper.Location = new System.Drawing.Point(171, 299);
+            this.btn_Upper.Name = "btn_Upper";
+            this.btn_Upper.Size = new System.Drawing.Size(75, 23);
+            this.btn_Upper.TabIndex = 22;
+            this.btn_Upper.Text = "增加";
+            this.btn_Upper.UseVisualStyleBackColor = true;
+            this.btn_Upper.Click += new System.EventHandler(this.btn_Upper_Click);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(670, 295);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(84, 31);
+            this.btn_Delete.TabIndex = 23;
+            this.btn_Delete.Text = "删除";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // Advice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 583);
-            this.Controls.Add(this.btn_Search);
+            this.ClientSize = new System.Drawing.Size(1111, 583);
+            this.Controls.Add(this.btn_Delete);
+            this.Controls.Add(this.btn_Upper);
+            this.Controls.Add(this.dgv_Package);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btn_SearchAdvice);
             this.Controls.Add(this.btn_Close);
-            this.Controls.Add(this.btn_Keep);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.dgv_NotExecute);
-            this.Controls.Add(this.dgv_Execute);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lbl_InHosptial);
+            this.Controls.Add(this.lbl_PatientNo);
             this.Controls.Add(this.lbl_Age);
             this.Controls.Add(this.lbl_Sex);
             this.Controls.Add(this.lbl_Name);
@@ -323,12 +255,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "医嘱";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Advice_FormClosed);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Execute)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NotExecute)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Package)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,20 +273,15 @@
         private System.Windows.Forms.Label lbl_Name;
         private System.Windows.Forms.Label lbl_Sex;
         private System.Windows.Forms.Label lbl_Age;
-        private System.Windows.Forms.Label lbl_InHosptial;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rbtn_temporary;
-        private System.Windows.Forms.RadioButton rbtn_Long;
-        private System.Windows.Forms.RadioButton rbtn_AllType;
-        private System.Windows.Forms.RadioButton rbtn_execute;
-        private System.Windows.Forms.RadioButton rbtn_Allexecute;
-        private System.Windows.Forms.DataGridView dgv_Execute;
+        private System.Windows.Forms.Label lbl_PatientNo;
         private System.Windows.Forms.DataGridView dgv_NotExecute;
         private System.Windows.Forms.Button btn_Submit;
-        private System.Windows.Forms.Button btn_Keep;
         private System.Windows.Forms.Button btn_Close;
-        private System.Windows.Forms.RadioButton rbtn_Executing;
-        private System.Windows.Forms.Button btn_Search;
+        private System.Windows.Forms.Button btn_SearchAdvice;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgv_Package;
+        private System.Windows.Forms.Button btn_Upper;
+        private System.Windows.Forms.Button btn_Delete;
     }
 }

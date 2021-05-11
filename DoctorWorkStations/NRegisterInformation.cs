@@ -70,7 +70,7 @@ namespace DoctorWorkStations
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = $"select * from tb_doctor where departmentno='{cb_Department.SelectedValue }' and status=''";
+            sqlCommand.CommandText = $"select * from tb_doctor where departmentno='{cb_Department.SelectedValue }' and status='医生'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable dataTable = new DataTable();
@@ -141,7 +141,7 @@ namespace DoctorWorkStations
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
             SqlCommand sql = sqlConnection.CreateCommand();
-            sql.CommandText = $"select 1 from tb_PatientInHosptial  where No='{txt_InHosptial.Text}'";
+            sql.CommandText = $"select count(1) from tb_PatientInHosptial  where No='{txt_InHosptial.Text}'";
             string c = "0";
             sqlConnection.Open();
             c = sql.ExecuteScalar().ToString();
@@ -193,6 +193,11 @@ namespace DoctorWorkStations
             int count = 0;
             sqlConnection.Open();
             count =sqlCommand.ExecuteNonQuery() + sqlCommand1.ExecuteNonQuery();
+            sqlCommand.CommandText = $@"insert tb_Diagnosis 
+                                        (Type,Description,DoctorNo,PatientNo,DiagnosisDate  )
+                                        values
+                                        ('门诊诊断','{txt_Dialogue.Text }','{cb_doctor.SelectedValue }','{txt_PatientNo.Text }','{DateTime.Now }')";
+            sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
             if(count !=0)
             {
@@ -270,6 +275,7 @@ namespace DoctorWorkStations
             }
             sqlDataReader.Close();
             SearchSignRecord();
+            Diagnosis();
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -400,7 +406,7 @@ namespace DoctorWorkStations
         private void NRegisterInformation_FormClosed(object sender, FormClosedEventArgs e)
         {
             NurseHomepage nurseHomepage = new NurseHomepage();
-            this.Close();
+            nurseHomepage.Show();
         }
     }
 }

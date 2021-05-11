@@ -39,7 +39,7 @@ namespace DoctorWorkStations
                                             JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                             JOIN tb_Doctor AS D ON D.No = P.DoctorNo 
                                             join tb_department as dt on dt.no=d.departmentno
-                                       WHERE P.IsInHospital=0 and dt.name='{Doctor.Department }' and P.BedNo is  NOT NULL";
+                                       WHERE P.IsInHospital=0 and dt.name='{Doctor.Department }' and  P.BedNo != 'NULL'";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable dataTable = new DataTable();
@@ -105,15 +105,12 @@ namespace DoctorWorkStations
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            HomePage homePage = new HomePage();
-            homePage.Show();
-            this.Close();
         }
 
         private void Shiftin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            HomePage h = new HomePage();
-            h.Show();
+            HomePage homePage = new HomePage();
+            homePage.Show();
         }
     }
 }

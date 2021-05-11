@@ -40,7 +40,7 @@ namespace DoctorWorkStations
                                             JOIN tb_Patient AS PA ON PA.No = P.PatientNo
                                             JOIN tb_Doctor AS D ON D.No = P.DoctorNo 
                                             join tb_department as dt on dt.no=d.departmentno
-                                       WHERE P.BedNo is null and dt.name='{Doctor.Department }'";
+                                       WHERE P.BedNo is null and dt.name='{Doctor.Department }' and flag is null";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataTable dataTable = new DataTable();

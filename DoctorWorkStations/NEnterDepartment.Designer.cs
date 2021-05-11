@@ -40,7 +40,6 @@
             this.txt_Name = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cb_Bed = new System.Windows.Forms.ComboBox();
             this.txt_Adwarddate = new System.Windows.Forms.TextBox();
             this.cb_nurse = new System.Windows.Forms.ComboBox();
             this.txt_Date = new System.Windows.Forms.TextBox();
@@ -61,15 +60,22 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btn_PreviousPage = new System.Windows.Forms.Button();
             this.btn_NextPage = new System.Windows.Forms.Button();
+            this.rbtn_LeaveHosptial = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.空床位 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.txt_BedNo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Patient)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.空床位.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbtn_New
             // 
             this.rbtn_New.AutoSize = true;
-            this.rbtn_New.Location = new System.Drawing.Point(114, 11);
+            this.rbtn_New.Location = new System.Drawing.Point(211, 22);
             this.rbtn_New.Name = "rbtn_New";
             this.rbtn_New.Size = new System.Drawing.Size(88, 19);
             this.rbtn_New.TabIndex = 0;
@@ -81,7 +87,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(226, 10);
+            this.radioButton2.Location = new System.Drawing.Point(323, 21);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(88, 19);
             this.radioButton2.TabIndex = 1;
@@ -93,19 +99,19 @@
             // rbtn_ALL
             // 
             this.rbtn_ALL.AutoSize = true;
-            this.rbtn_ALL.Location = new System.Drawing.Point(337, 10);
+            this.rbtn_ALL.Location = new System.Drawing.Point(434, 21);
             this.rbtn_ALL.Name = "rbtn_ALL";
-            this.rbtn_ALL.Size = new System.Drawing.Size(88, 19);
+            this.rbtn_ALL.Size = new System.Drawing.Size(118, 19);
             this.rbtn_ALL.TabIndex = 2;
             this.rbtn_ALL.TabStop = true;
-            this.rbtn_ALL.Text = "所有病人";
+            this.rbtn_ALL.Text = "所有在院病人";
             this.rbtn_ALL.UseVisualStyleBackColor = true;
             this.rbtn_ALL.CheckedChanged += new System.EventHandler(this.rbtn_ALL_CheckedChanged);
             // 
             // dgv_Patient
             // 
             this.dgv_Patient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Patient.Location = new System.Drawing.Point(114, 68);
+            this.dgv_Patient.Location = new System.Drawing.Point(211, 79);
             this.dgv_Patient.Name = "dgv_Patient";
             this.dgv_Patient.RowTemplate.Height = 27;
             this.dgv_Patient.Size = new System.Drawing.Size(565, 205);
@@ -120,7 +126,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txt_Name);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(114, 299);
+            this.panel1.Location = new System.Drawing.Point(211, 310);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(566, 47);
             this.panel1.TabIndex = 44;
@@ -178,7 +184,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cb_Bed);
+            this.groupBox1.Controls.Add(this.txt_BedNo);
             this.groupBox1.Controls.Add(this.txt_Adwarddate);
             this.groupBox1.Controls.Add(this.cb_nurse);
             this.groupBox1.Controls.Add(this.txt_Date);
@@ -197,20 +203,12 @@
             this.groupBox1.Controls.Add(this.txt_InHosptial);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(114, 367);
+            this.groupBox1.Location = new System.Drawing.Point(211, 378);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(575, 162);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "病人在院信息";
-            // 
-            // cb_Bed
-            // 
-            this.cb_Bed.FormattingEnabled = true;
-            this.cb_Bed.Location = new System.Drawing.Point(244, 90);
-            this.cb_Bed.Name = "cb_Bed";
-            this.cb_Bed.Size = new System.Drawing.Size(81, 23);
-            this.cb_Bed.TabIndex = 77;
             // 
             // txt_Adwarddate
             // 
@@ -369,7 +367,7 @@
             // 
             // btn_PreviousPage
             // 
-            this.btn_PreviousPage.Location = new System.Drawing.Point(403, 33);
+            this.btn_PreviousPage.Location = new System.Drawing.Point(500, 44);
             this.btn_PreviousPage.Name = "btn_PreviousPage";
             this.btn_PreviousPage.Size = new System.Drawing.Size(75, 23);
             this.btn_PreviousPage.TabIndex = 46;
@@ -379,7 +377,7 @@
             // 
             // btn_NextPage
             // 
-            this.btn_NextPage.Location = new System.Drawing.Point(560, 32);
+            this.btn_NextPage.Location = new System.Drawing.Point(657, 43);
             this.btn_NextPage.Name = "btn_NextPage";
             this.btn_NextPage.Size = new System.Drawing.Size(75, 23);
             this.btn_NextPage.TabIndex = 47;
@@ -387,11 +385,73 @@
             this.btn_NextPage.UseVisualStyleBackColor = true;
             this.btn_NextPage.Click += new System.EventHandler(this.btn_NextPage_Click);
             // 
+            // rbtn_LeaveHosptial
+            // 
+            this.rbtn_LeaveHosptial.AutoSize = true;
+            this.rbtn_LeaveHosptial.Location = new System.Drawing.Point(563, 21);
+            this.rbtn_LeaveHosptial.Name = "rbtn_LeaveHosptial";
+            this.rbtn_LeaveHosptial.Size = new System.Drawing.Size(88, 19);
+            this.rbtn_LeaveHosptial.TabIndex = 48;
+            this.rbtn_LeaveHosptial.TabStop = true;
+            this.rbtn_LeaveHosptial.Text = "出院病人";
+            this.rbtn_LeaveHosptial.UseVisualStyleBackColor = true;
+            this.rbtn_LeaveHosptial.CheckedChanged += new System.EventHandler(this.rbtn_LeaveHosptial_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(370, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "查看";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // 空床位
+            // 
+            this.空床位.Controls.Add(this.listBox1);
+            this.空床位.Controls.Add(this.comboBox1);
+            this.空床位.Location = new System.Drawing.Point(12, 21);
+            this.空床位.Name = "空床位";
+            this.空床位.Size = new System.Drawing.Size(153, 292);
+            this.空床位.TabIndex = 50;
+            this.空床位.TabStop = false;
+            this.空床位.Text = "空床位";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(7, 22);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.TabStop = false;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(16, 58);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 199);
+            this.listBox1.TabIndex = 1;
+            // 
+            // txt_BedNo
+            // 
+            this.txt_BedNo.Location = new System.Drawing.Point(225, 96);
+            this.txt_BedNo.Name = "txt_BedNo";
+            this.txt_BedNo.Size = new System.Drawing.Size(100, 25);
+            this.txt_BedNo.TabIndex = 77;
+            // 
             // NEnterDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 534);
+            this.Controls.Add(this.空床位);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.rbtn_LeaveHosptial);
             this.Controls.Add(this.btn_NextPage);
             this.Controls.Add(this.btn_PreviousPage);
             this.Controls.Add(this.groupBox1);
@@ -401,6 +461,7 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.rbtn_New);
             this.Name = "NEnterDepartment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "入科";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NEnterDepartment_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Patient)).EndInit();
@@ -408,6 +469,7 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.空床位.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,8 +507,13 @@
         private System.Windows.Forms.TextBox txt_Date;
         private System.Windows.Forms.ComboBox cb_nurse;
         private System.Windows.Forms.TextBox txt_Adwarddate;
-        private System.Windows.Forms.ComboBox cb_Bed;
         private System.Windows.Forms.Button btn_PreviousPage;
         private System.Windows.Forms.Button btn_NextPage;
+        private System.Windows.Forms.RadioButton rbtn_LeaveHosptial;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox 空床位;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txt_BedNo;
     }
 }

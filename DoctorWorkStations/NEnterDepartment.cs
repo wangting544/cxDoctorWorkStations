@@ -22,6 +22,19 @@ namespace DoctorWorkStations
             this.dgv_Patient.BackgroundColor = Color.White;
             dgv_Patient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = "select * from tb_department";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            DataTable dataTable = new DataTable();
+            sqlConnection.Open();
+            sqlDataAdapter.Fill(dataTable);
+            comboBox1 .DataSource = dataTable;
+            comboBox1 .DisplayMember = "Name";
+            comboBox1 .ValueMember = "No";
+            sqlConnection.Close();
         }
 
         private void rbtn_New_CheckedChanged(object sender, EventArgs e)
@@ -52,7 +65,6 @@ namespace DoctorWorkStations
         {
             Department();
             Doctors();
-            BedNo();
             Nurse();
             DisplayInformation();
         }
@@ -104,6 +116,30 @@ namespace DoctorWorkStations
             sqlConnection.Close();
             this.dgv_Patient.DataSource = dataTable;
         }
+        private void SearchLeaveHosptial()
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = "Server=(local);Database=DoctorWorkstation;Integrated Security=sspi";
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = $@"SELECT
+                                            P.PatientNo AS 病人ID
+	                                        ,P.No AS 住院号
+	                                        ,PA.Name AS 姓名
+	                                        ,PA.Sex AS 性别
+	                                        ,P.PrincipalDiagnosis AS 主要诊断                                       
+                                       FROM tb_PatientInHosptial AS P
+                                            JOIN tb_Patient AS PA ON PA.No = P.PatientNo
+                                            JOIN tb_Doctor AS D ON D.No = P.DoctorNo 
+                                            join tb_department as dt on dt.no=d.departmentno
+                                       WHERE flag=1 ";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            DataTable dataTable = new DataTable();
+            sqlConnection.Open();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            this.dgv_Patient.DataSource = dataTable;
+        }
         private int maxPageNo;
         private int pageSize;
         private int currentPageNo;
@@ -116,11 +152,14 @@ namespace DoctorWorkStations
             sqlConnection.ConnectionString = "Server=(local);Database=DoctorWorkstation;Integrated Security=sspi";
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText = $@"SELECT
-	                                        P.Name AS 姓名
+                                            P.No AS 病人ID
+	                                        ,P.Name AS 姓名
 	                                        ,P.Sex AS 性别
-	                                        ,p.BIRTHDAY AS 出生日期                                   
+	                                        ,p.BIRTHDAY AS 出生日期                                            
                                        FROM 
-                                            tb_Patient AS P
+                                            tb_Patient AS P 
+                                            JOIN tb_PatientInHosptial AS PA ON p.NO=pa.PatientNo
+                                       WHERE  flag = 0 or Flag is null
  ";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
@@ -182,7 +221,7 @@ namespace DoctorWorkStations
             if (sqlDataReader.Read())
             {
                 txt_Age.Text = ((DateTime.Now.Year) - ((DateTime)sqlDataReader["Birthday"]).Year).ToString();
-                cb_Bed.SelectedValue = sqlDataReader["bed"].ToString();
+                txt_BedNo.Text= sqlDataReader["bed"].ToString();
                 txt_Dialogue.Text = sqlDataReader["PrincipalDiagnosis"].ToString();
                 txt_InHosptial.Text = sqlDataReader["No"].ToString();
                 txt_Name.Text = sqlDataReader["name"].ToString();
@@ -249,31 +288,10 @@ namespace DoctorWorkStations
             cb_nurse .ValueMember = "No";
             sqlConnection.Close();
         }
-        private void BedNo()
-        {
-            SqlConnection sqlConnection = new SqlConnection();
-            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = $@"select *
-                                            from tb_Bed as b
-                                            join tb_Department as d on d.Name=b.department 
-                                        where
-	                                        d.no='{cb_Department.SelectedValue}' and b.name not in (SELECT BedNo  FROM tb_PatientInHosptial WHERE BedNo IS NOT NULL )";
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            sqlDataAdapter.SelectCommand = sqlCommand;
-            DataTable dataTable = new DataTable();
-            sqlConnection.Open();
-            sqlDataAdapter.Fill(dataTable);
-            cb_Bed.DataSource = dataTable;
-            cb_Bed.DisplayMember = "Name";
-            cb_Bed.ValueMember = "Name";
-            sqlConnection.Close();
-        }
-
+ 
         private void cb_Department_SelectedIndexChanged(object sender, EventArgs e)
         {
             Doctors();
-            BedNo();
         }
 
         private void btn_Keep_Click(object sender, EventArgs e)
@@ -291,7 +309,7 @@ namespace DoctorWorkStations
                 SqlCommand sql1 = sqlConnection.CreateCommand();
                 sql1.CommandText = $@"update tb_PatientInHosptial 
                                     SET 
-	                                    BedNo ='{cb_Bed.SelectedValue }'
+	                                    BedNo ='{txt_BedNo.Text }'
 	                                    ,PrincipalDiagnosis='{txt_Dialogue.Text }'
 	                                    ,DoctorNo='{cb_doctor.SelectedValue }'
 	                                    ,nurseNo='{cb_nurse.SelectedValue }'
@@ -342,6 +360,43 @@ namespace DoctorWorkStations
         {
             NurseHomepage nurseHomepage = new NurseHomepage();
             nurseHomepage.Show();
+        }
+
+        private void rbtn_LeaveHosptial_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbtn_LeaveHosptial.Checked )
+            {
+                SearchLeaveHosptial();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Department();
+            Doctors();
+            Nurse();
+            DisplayInformation();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = $@"select *
+                                            from tb_Bed as b
+                                            join tb_Department as d on d.Name=b.department 
+                                        where
+	                                        d.no='{comboBox1 .SelectedValue}' and b.name not in (SELECT BedNo  FROM tb_PatientInHosptial WHERE BedNo IS NOT NULL )";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            DataTable dataTable = new DataTable();
+            sqlConnection.Open();
+            sqlDataAdapter.Fill(dataTable);
+            listBox1 .DataSource = dataTable;
+            listBox1 .DisplayMember = "Name";
+            listBox1 .ValueMember = "Name";
+            sqlConnection.Close();
         }
     }
 }

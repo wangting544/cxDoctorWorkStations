@@ -80,5 +80,11 @@ namespace DoctorWorkStations
             }
             this.dgv_Drug.DataSource = dataTable;
         }
+
+        private void DrugSearch_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            HomePage homePage = new HomePage();
+            homePage.Show();
+        }
     }
 }
