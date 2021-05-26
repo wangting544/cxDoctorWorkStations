@@ -159,7 +159,6 @@ namespace DoctorWorkStations
             {
                 Temperature temperature = new Temperature(PatientNo );
                 temperature.Show();
-                this.Close();
             }
             if (lbox_ParientOperate.SelectedIndex==5)
             {

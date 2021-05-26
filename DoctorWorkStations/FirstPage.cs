@@ -21,6 +21,9 @@ namespace DoctorWorkStations
         string PatientInHospitalNo;
         public FirstPage(string InHospitalNo):this()
         {
+            this.dgv_Operation .BackgroundColor = Color.White;
+            dgv_Operation .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            SearchOperation();
             this.PatientInHospitalNo = InHospitalNo;
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
@@ -78,7 +81,7 @@ namespace DoctorWorkStations
             sqlDataAdapter.Fill(dataTable);
             sqlCommand.CommandText = "select  * from tb_Doctor where Status='医生'";
             sqlDataAdapter.Fill(doctorTable);
-            sqlCommand.CommandText = "select distinct * from tb_Diagnosis ";
+            sqlCommand.CommandText = "select distinct type from tb_Diagnosis ";
             sqlDataAdapter.Fill(TypeTable);
             sqlConnection.Close();
             dgv_Diagnosis.DataSource = dataTable;
@@ -166,6 +169,92 @@ namespace DoctorWorkStations
         {
             HomePage homePage = new HomePage();
             homePage.Show();
+        }
+        /// <summary>
+        /// 查找手术信息
+        /// </summary>
+        private void SearchOperation()
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = $@"select * from tb_operation where patientNo='{txt_PatientNo.Text }' ";
+            DataTable operationTable = new DataTable();
+            DataTable doctorTable=new DataTable();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            sqlConnection.Open();
+            sqlDataAdapter.Fill(operationTable);
+            sqlCommand.CommandText = $@"select * from tb_doctor";
+            sqlDataAdapter.Fill(doctorTable);
+            sqlConnection.Close();
+            dgv_Operation.Columns.Clear();
+            dgv_Operation.DataSource = operationTable;
+            DataGridViewComboBoxColumn DoctorColumn = new DataGridViewComboBoxColumn();
+            dgv_Operation .Columns.Add(DoctorColumn);
+            DoctorColumn.Name = "Doctor";
+            DoctorColumn.HeaderText = "主刀医生";
+            DoctorColumn.DataSource = doctorTable;
+            DoctorColumn.DisplayMember = "Name";
+            DoctorColumn.ValueMember = "No";
+            DoctorColumn.DataPropertyName = "doctorNo";
+            DoctorColumn.DisplayIndex = 5;
+            dgv_Operation.Columns["no"].HeaderText = "编号";
+            dgv_Operation.Columns["OperateName"].HeaderText = "手术名称";
+            dgv_Operation.Columns["StartTime"].HeaderText = "开始时间";
+            dgv_Operation.Columns["EndTime"].HeaderText = "结束时间";
+            dgv_Operation.Columns["IsExecute"].HeaderText = "是否执行";
+            dgv_Operation.Columns["DoctorNo"].Visible = false;
+            dgv_Operation.Columns["PatientNo"].Visible = false;
+
+        }
+
+        private void btn_Keep_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand insertCommand = sqlConnection.CreateCommand();
+            insertCommand.CommandText= $@"insert tb_Operation
+                                        (No,OperateName,StartTime,EndTime,DoctorNo,PatientNo,IsExecute)
+                                        values
+                                        (@No,@OperateName,@StartTime,@EndTime,@DoctorNo,'{txt_PatientNo.Text}',@IsExecute)
+";
+            insertCommand.Parameters.Add("@No", SqlDbType.Int, 0, "No");
+            insertCommand.Parameters.Add("@OperateName", SqlDbType.VarChar, 0, "OperateName");
+            insertCommand.Parameters.Add("@StartTime", SqlDbType.DateTime, 0, "StartTime");
+            insertCommand.Parameters.Add("@EndTime", SqlDbType.DateTime, 0, "EndTime");
+            insertCommand.Parameters.Add("@DoctorNo", SqlDbType.VarChar , 0, "DoctorNo");
+            insertCommand.Parameters.Add("@isExecute", SqlDbType.Bit , 0, "isExecute");
+
+            SqlCommand updateCommand = sqlConnection.CreateCommand();
+            updateCommand.CommandText = $@"update tb_Operation
+                                         set
+                                            OperateName= @OperateName,
+                                            StartTime= @StartTime,
+                                            EndTime=@EndTime ,
+                                            DoctorNo= @DoctorNo,
+                                            IsExecute = @IsExecute
+                                            where No=@No and PatientNo= '{txt_PatientNo.Text}'";
+            updateCommand .Parameters.Add("@No", SqlDbType.Int, 0, "No");
+            updateCommand .Parameters.Add("@OperateName", SqlDbType.VarChar, 0, "OperateName");
+            updateCommand .Parameters.Add("@StartTime", SqlDbType.DateTime, 0, "StartTime");
+            updateCommand .Parameters.Add("@EndTime", SqlDbType.DateTime, 0, "EndTime");
+            updateCommand .Parameters.Add("@DoctorNo", SqlDbType.VarChar, 0, "DoctorNo");
+            updateCommand .Parameters.Add("@isExecute", SqlDbType.Bit, 0, "isExecute");
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.UpdateCommand = updateCommand ;
+            sqlDataAdapter.InsertCommand = insertCommand;
+            DataTable dateTable = (DataTable)this.dgv_Operation .DataSource;
+            sqlConnection.Open();
+            int rowaffected = sqlDataAdapter.Update(dateTable);
+            sqlConnection.Close();
+            MessageBox.Show($"更新{rowaffected }行。");
+
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            SearchOperation();
         }
     }
 }

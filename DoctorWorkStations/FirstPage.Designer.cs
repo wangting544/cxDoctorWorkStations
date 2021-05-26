@@ -41,6 +41,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_Keep1 = new System.Windows.Forms.Button();
+            this.dgv_Diagnosis = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -51,11 +53,14 @@
             this.txt_OutDate = new System.Windows.Forms.TextBox();
             this.txt_AdmWardDate = new System.Windows.Forms.TextBox();
             this.txt_Birthday = new System.Windows.Forms.TextBox();
-            this.dgv_Diagnosis = new System.Windows.Forms.DataGridView();
-            this.btn_Keep1 = new System.Windows.Forms.Button();
+            this.dgv_Operation = new System.Windows.Forms.DataGridView();
+            this.btn_Search = new System.Windows.Forms.Button();
+            this.btn_Keep = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Diagnosis)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Operation)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -179,22 +184,44 @@
             this.tabPage1.Text = "      诊断信息      ";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btn_Keep1
+            // 
+            this.btn_Keep1.Location = new System.Drawing.Point(640, 258);
+            this.btn_Keep1.Name = "btn_Keep1";
+            this.btn_Keep1.Size = new System.Drawing.Size(83, 30);
+            this.btn_Keep1.TabIndex = 1;
+            this.btn_Keep1.Text = "保存（&S）";
+            this.btn_Keep1.UseVisualStyleBackColor = true;
+            this.btn_Keep1.Click += new System.EventHandler(this.btn_Keep1_Click);
+            // 
+            // dgv_Diagnosis
+            // 
+            this.dgv_Diagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Diagnosis.Location = new System.Drawing.Point(0, 0);
+            this.dgv_Diagnosis.Name = "dgv_Diagnosis";
+            this.dgv_Diagnosis.RowTemplate.Height = 27;
+            this.dgv_Diagnosis.Size = new System.Drawing.Size(791, 239);
+            this.dgv_Diagnosis.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(791, 252);
+            this.tabPage2.Size = new System.Drawing.Size(791, 294);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "      中医诊断信息      ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_Keep);
+            this.tabPage3.Controls.Add(this.btn_Search);
+            this.tabPage3.Controls.Add(this.dgv_Operation);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(791, 252);
+            this.tabPage3.Size = new System.Drawing.Size(791, 294);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "        手术信息        ";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -204,7 +231,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(791, 252);
+            this.tabPage4.Size = new System.Drawing.Size(791, 294);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "       其他信息       ";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -265,24 +292,34 @@
             this.txt_Birthday.Size = new System.Drawing.Size(177, 25);
             this.txt_Birthday.TabIndex = 19;
             // 
-            // dgv_Diagnosis
+            // dgv_Operation
             // 
-            this.dgv_Diagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Diagnosis.Location = new System.Drawing.Point(0, 0);
-            this.dgv_Diagnosis.Name = "dgv_Diagnosis";
-            this.dgv_Diagnosis.RowTemplate.Height = 27;
-            this.dgv_Diagnosis.Size = new System.Drawing.Size(791, 239);
-            this.dgv_Diagnosis.TabIndex = 0;
+            this.dgv_Operation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Operation.Location = new System.Drawing.Point(21, 15);
+            this.dgv_Operation.Name = "dgv_Operation";
+            this.dgv_Operation.RowTemplate.Height = 27;
+            this.dgv_Operation.Size = new System.Drawing.Size(735, 218);
+            this.dgv_Operation.TabIndex = 0;
             // 
-            // btn_Keep1
+            // btn_Search
             // 
-            this.btn_Keep1.Location = new System.Drawing.Point(640, 258);
-            this.btn_Keep1.Name = "btn_Keep1";
-            this.btn_Keep1.Size = new System.Drawing.Size(83, 30);
-            this.btn_Keep1.TabIndex = 1;
-            this.btn_Keep1.Text = "保存（&S）";
-            this.btn_Keep1.UseVisualStyleBackColor = true;
-            this.btn_Keep1.Click += new System.EventHandler(this.btn_Keep1_Click);
+            this.btn_Search.Location = new System.Drawing.Point(469, 253);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(75, 30);
+            this.btn_Search.TabIndex = 1;
+            this.btn_Search.Text = "查找";
+            this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            // 
+            // btn_Keep
+            // 
+            this.btn_Keep.Location = new System.Drawing.Point(606, 252);
+            this.btn_Keep.Name = "btn_Keep";
+            this.btn_Keep.Size = new System.Drawing.Size(75, 30);
+            this.btn_Keep.TabIndex = 2;
+            this.btn_Keep.Text = "保存";
+            this.btn_Keep.UseVisualStyleBackColor = true;
+            this.btn_Keep.Click += new System.EventHandler(this.btn_Keep_Click);
             // 
             // FirstPage
             // 
@@ -315,6 +352,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Diagnosis)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Operation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,5 +386,8 @@
         private System.Windows.Forms.TextBox txt_Birthday;
         private System.Windows.Forms.DataGridView dgv_Diagnosis;
         private System.Windows.Forms.Button btn_Keep1;
+        private System.Windows.Forms.Button btn_Keep;
+        private System.Windows.Forms.Button btn_Search;
+        private System.Windows.Forms.DataGridView dgv_Operation;
     }
 }

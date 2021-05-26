@@ -144,5 +144,11 @@ namespace DoctorWorkStations
                 Search();
             }
         }
+
+        private void NLookAdvice_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NurseHomepage nurseHomepage = new NurseHomepage();
+            nurseHomepage.Show();
+        }
     }
 }

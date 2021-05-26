@@ -125,5 +125,77 @@ namespace DoctorWorkStations
         private void SearchAdvice_FormClosed(object sender, FormClosedEventArgs e)
         {
         }
+        /// <summary>
+        /// 选中全部按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rbtn_AllType_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbtn_AllType.Checked )
+            {
+                Search();
+            }
+        }
+        /// <summary>
+        /// 选中长期
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rbtn_Long_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtn_Long .Checked)
+            {
+                Search();
+            }
+        }
+        /// <summary>
+        /// 选中短期
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rbtn_temporary_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtn_temporary .Checked)
+            {
+                Search();
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rbtn_Allexecute_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtn_Allexecute .Checked)
+            {
+                Search();
+            }
+        }
+
+        private void rbtn_execute_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtn_execute .Checked)
+            {
+                Search();
+            }
+        }
+
+        private void rbtn_Executing_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtn_Executing .Checked)
+            {
+                Search();
+            }
+        }
+
+        private void rbtn_Stop_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtn_Stop .Checked)
+            {
+                Search();
+            }
+        }
     }
 }

@@ -84,8 +84,6 @@ namespace DoctorWorkStations
 
         private void Property_FormClosing(object sender, FormClosingEventArgs e)
         {
-            HomePage h = new HomePage();
-            h.Show();
         }
 
         private void btn_Open_Click(object sender, EventArgs e)

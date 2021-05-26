@@ -92,7 +92,7 @@ namespace DoctorWorkStations
                                         ,pi.DoctorNo 
                                         from tb_Patient as P join tb_PatientInHosptial as PI on PI.PatientNo =P.No 
                                         where
-	                                    PI.flag is null or PI.Flag=0";
+	                                    (PI.flag is null or PI.Flag=0) and isinhospital =1 ";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             sqlDataAdapter.SelectCommand = sqlCommand;
             DataSet dataSet = new DataSet();
@@ -154,15 +154,37 @@ namespace DoctorWorkStations
             if (this.trv_Patient .SelectedNode.Level != 2)                                         //若树形视图的选中节点的级别不为3，即未选中班级节点；
                 return;																					//则返回；
             string  inHosptialNo = this.trv_Patient.SelectedNode.Tag.ToString();
-            if (lbox_Advice.SelectedIndex==-1)
-            {
-                MessageBox.Show("你未选中病人！");
-                return;
-            }
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();
+            sqlCommand.CommandText = $"select PatientNo  from tb_PatientInHosptial where No='{inHosptialNo  }'";
+            sqlConnection.Open();
+            string PatientNo = sqlCommand.ExecuteScalar().ToString();
+            sqlConnection.Close();
+
+            //医嘱
             if(lbox_Advice.SelectedIndex==0)
             {
                 SearchAdvice searchAdvice = new SearchAdvice(inHosptialNo);
                 searchAdvice.Show();
+            }
+            //体温
+            if (lbox_Advice.SelectedIndex ==1 )
+            {
+                Temperature temperature = new Temperature(PatientNo);
+                temperature.Show();
+            }
+            //属性
+            if (lbox_Advice.SelectedIndex == 2)
+            {
+                Property property = new Property(inHosptialNo);
+                property.Show();
+            }
+            //手术
+            if(lbox_Advice.SelectedIndex==3)
+            {
+                NSearchOperation nSearchOperation = new NSearchOperation(PatientNo );
+                nSearchOperation.Show();
             }
         }
     }

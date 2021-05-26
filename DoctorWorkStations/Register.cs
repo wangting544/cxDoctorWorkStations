@@ -124,6 +124,10 @@ namespace DoctorWorkStations
         private void txt_No_Validated(object sender, EventArgs e)
         {
             label6.Text = "*";
+            if(String.IsNullOrEmpty( txt_No.Text.Trim()))
+            {
+                label6.Text = "账号为空！";
+            }
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = "Server=(local);Database=DoctorWorkstation;Integrated Security=sspi";
             SqlCommand sqlCommand = sqlConnection.CreateCommand();

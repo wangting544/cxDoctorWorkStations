@@ -105,8 +105,7 @@ namespace DoctorWorkStations
 
         private void Temperature_FormClosed(object sender, FormClosedEventArgs e)
         {
-            HomePage homePage = new HomePage();
-            homePage.Show();
+
         }
     }
 }

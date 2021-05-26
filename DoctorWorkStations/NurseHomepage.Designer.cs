@@ -164,13 +164,17 @@
             // 
             // lbox_Advice
             // 
+            this.lbox_Advice.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbox_Advice.FormattingEnabled = true;
-            this.lbox_Advice.ItemHeight = 15;
+            this.lbox_Advice.ItemHeight = 27;
             this.lbox_Advice.Items.AddRange(new object[] {
-            "医嘱"});
+            "医嘱",
+            "体温",
+            "属性",
+            "手术"});
             this.lbox_Advice.Location = new System.Drawing.Point(179, 56);
             this.lbox_Advice.Name = "lbox_Advice";
-            this.lbox_Advice.Size = new System.Drawing.Size(120, 184);
+            this.lbox_Advice.Size = new System.Drawing.Size(120, 166);
             this.lbox_Advice.TabIndex = 4;
             this.lbox_Advice.SelectedIndexChanged += new System.EventHandler(this.lbox_Advice_SelectedIndexChanged);
             // 

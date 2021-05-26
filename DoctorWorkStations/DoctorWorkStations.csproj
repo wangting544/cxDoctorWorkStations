@@ -144,6 +144,12 @@
     <Compile Include="NRegisterInformation.Designer.cs">
       <DependentUpon>NRegisterInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="NSearchOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NSearchOperation.Designer.cs">
+      <DependentUpon>NSearchOperation.cs</DependentUpon>
+    </Compile>
     <Compile Include="NStopAdvice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NRegisterInformation.resx">
       <DependentUpon>NRegisterInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NSearchOperation.resx">
+      <DependentUpon>NSearchOperation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NStopAdvice.resx">
       <DependentUpon>NStopAdvice.cs</DependentUpon>

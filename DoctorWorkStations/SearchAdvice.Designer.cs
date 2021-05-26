@@ -31,6 +31,7 @@
             this.btn_Search = new System.Windows.Forms.Button();
             this.dgv_Execute = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbtn_Stop = new System.Windows.Forms.RadioButton();
             this.rbtn_Executing = new System.Windows.Forms.RadioButton();
             this.rbtn_execute = new System.Windows.Forms.RadioButton();
             this.rbtn_Allexecute = new System.Windows.Forms.RadioButton();
@@ -48,7 +49,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.rbtn_Stop = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Execute)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,6 +86,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "显示范围";
             // 
+            // rbtn_Stop
+            // 
+            this.rbtn_Stop.AutoSize = true;
+            this.rbtn_Stop.Location = new System.Drawing.Point(241, 22);
+            this.rbtn_Stop.Name = "rbtn_Stop";
+            this.rbtn_Stop.Size = new System.Drawing.Size(58, 19);
+            this.rbtn_Stop.TabIndex = 3;
+            this.rbtn_Stop.TabStop = true;
+            this.rbtn_Stop.Text = "停用";
+            this.rbtn_Stop.UseVisualStyleBackColor = true;
+            this.rbtn_Stop.CheckedChanged += new System.EventHandler(this.rbtn_Stop_CheckedChanged);
+            // 
             // rbtn_Executing
             // 
             this.rbtn_Executing.AutoSize = true;
@@ -96,6 +108,7 @@
             this.rbtn_Executing.TabStop = true;
             this.rbtn_Executing.Text = "执行中";
             this.rbtn_Executing.UseVisualStyleBackColor = true;
+            this.rbtn_Executing.CheckedChanged += new System.EventHandler(this.rbtn_Executing_CheckedChanged);
             // 
             // rbtn_execute
             // 
@@ -107,6 +120,7 @@
             this.rbtn_execute.TabStop = true;
             this.rbtn_execute.Text = "己执行";
             this.rbtn_execute.UseVisualStyleBackColor = true;
+            this.rbtn_execute.CheckedChanged += new System.EventHandler(this.rbtn_execute_CheckedChanged);
             // 
             // rbtn_Allexecute
             // 
@@ -118,6 +132,7 @@
             this.rbtn_Allexecute.TabStop = true;
             this.rbtn_Allexecute.Text = "都显示";
             this.rbtn_Allexecute.UseVisualStyleBackColor = true;
+            this.rbtn_Allexecute.CheckedChanged += new System.EventHandler(this.rbtn_Allexecute_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -141,6 +156,7 @@
             this.rbtn_temporary.TabStop = true;
             this.rbtn_temporary.Text = "临时";
             this.rbtn_temporary.UseVisualStyleBackColor = true;
+            this.rbtn_temporary.CheckedChanged += new System.EventHandler(this.rbtn_temporary_CheckedChanged);
             // 
             // rbtn_Long
             // 
@@ -152,6 +168,7 @@
             this.rbtn_Long.TabStop = true;
             this.rbtn_Long.Text = "长期";
             this.rbtn_Long.UseVisualStyleBackColor = true;
+            this.rbtn_Long.CheckedChanged += new System.EventHandler(this.rbtn_Long_CheckedChanged);
             // 
             // rbtn_AllType
             // 
@@ -163,6 +180,7 @@
             this.rbtn_AllType.TabStop = true;
             this.rbtn_AllType.Text = "全部";
             this.rbtn_AllType.UseVisualStyleBackColor = true;
+            this.rbtn_AllType.CheckedChanged += new System.EventHandler(this.rbtn_AllType_CheckedChanged);
             // 
             // lbl_InHosptial
             // 
@@ -253,17 +271,6 @@
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 18;
             this.label1.Text = "床号：";
-            // 
-            // rbtn_Stop
-            // 
-            this.rbtn_Stop.AutoSize = true;
-            this.rbtn_Stop.Location = new System.Drawing.Point(241, 22);
-            this.rbtn_Stop.Name = "rbtn_Stop";
-            this.rbtn_Stop.Size = new System.Drawing.Size(58, 19);
-            this.rbtn_Stop.TabIndex = 3;
-            this.rbtn_Stop.TabStop = true;
-            this.rbtn_Stop.Text = "停用";
-            this.rbtn_Stop.UseVisualStyleBackColor = true;
             // 
             // SearchAdvice
             // 
